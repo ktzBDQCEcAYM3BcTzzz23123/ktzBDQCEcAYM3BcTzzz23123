@@ -1,0 +1,7 @@
+while _G.Collecting do wait(0.1)
+for _,Orbs in pairs(workspace["__THINGS"].Orbs:GetChildren())) do
+if Orbs:IsA("Part") then
+Orbs.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+end
