@@ -22,24 +22,55 @@ local UICorner_3 = Instance.new("UICorner")
 local UIGradient_2 = Instance.new("UIGradient")
 local TextLabel_3 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
-local UIGradient_3 = Instance.new("UIGradient")
-local compatibility_frame = Instance.new("Frame")
+local auto1 = Instance.new("TextButton")
 local UICorner_4 = Instance.new("UICorner")
-local UIListLayout_3 = Instance.new("UIListLayout")
-local ScrollingFrame = Instance.new("ScrollingFrame")
+local UIGradient_3 = Instance.new("UIGradient")
 local TextLabel_4 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
-local UIListLayout_4 = Instance.new("UIListLayout")
-local Scale = Instance.new("TextBox")
+local dex = Instance.new("TextButton")
 local UICorner_5 = Instance.new("UICorner")
-local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
-local walk = Instance.new("TextButton")
-local UICorner_6 = Instance.new("UICorner")
 local UIGradient_4 = Instance.new("UIGradient")
 local TextLabel_5 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
+local UIGradient_5 = Instance.new("UIGradient")
+local compatibility_frame = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local UIListLayout_3 = Instance.new("UIListLayout")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local TextLabel_6 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
-local TextButton = Instance.new("TextButton")
+local UIListLayout_4 = Instance.new("UIListLayout")
+local Scale = Instance.new("TextBox")
+local UICorner_7 = Instance.new("UICorner")
 local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
+local walk = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local UIGradient_6 = Instance.new("UIGradient")
+local TextLabel_7 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
+local TextButton = Instance.new("TextButton")
+local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
+local auto1_frame = Instance.new("Frame")
+local UICorner_9 = Instance.new("UICorner")
+local UIListLayout_5 = Instance.new("UIListLayout")
+local ScrollingFrame_2 = Instance.new("ScrollingFrame")
+local UIListLayout_6 = Instance.new("UIListLayout")
+local orbs = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+local UIGradient_7 = Instance.new("UIGradient")
+local TextLabel_8 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_10 = Instance.new("UIAspectRatioConstraint")
+local dex_frame = Instance.new("Frame")
+local UICorner_11 = Instance.new("UICorner")
+local UIListLayout_7 = Instance.new("UIListLayout")
+local ScrollingFrame_3 = Instance.new("ScrollingFrame")
+local UIListLayout_8 = Instance.new("UIListLayout")
+local TextButton_2 = Instance.new("TextButton")
+local UIAspectRatioConstraint_11 = Instance.new("UIAspectRatioConstraint")
+local ButtonList = Instance.new("ScrollingFrame")
+local UIListLayout_9 = Instance.new("UIListLayout")
+local Current = Instance.new("TextButton")
+local UIAspectRatioConstraint_12 = Instance.new("UIAspectRatioConstraint")
 
 --Properties:
 
@@ -163,7 +194,7 @@ TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_3.BorderSizePixel = 0
 TextLabel_3.Size = UDim2.new(1, 0, 1, 0)
 TextLabel_3.Font = Enum.Font.Gotham
-TextLabel_3.Text = "compatibility"
+TextLabel_3.Text = "client settings"
 TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_3.TextScaled = true
 TextLabel_3.TextSize = 14.000
@@ -172,9 +203,86 @@ TextLabel_3.TextWrapped = true
 UIAspectRatioConstraint_3.Parent = compatibility
 UIAspectRatioConstraint_3.AspectRatio = 13.846
 
-UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(58, 58, 58)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.89, Color3.fromRGB(13, 13, 13)), ColorSequenceKeypoint.new(0.89, Color3.fromRGB(39, 39, 39)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))}
+auto1.Name = "auto1"
+auto1.Parent = button_list
+auto1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+auto1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+auto1.BorderSizePixel = 0
+auto1.Position = UDim2.new(0.309548259, 0, 0.441309273, 0)
+auto1.Size = UDim2.new(0.739219725, 0, 0.117381476, 0)
+auto1.Font = Enum.Font.Unknown
+auto1.Text = ""
+auto1.TextColor3 = Color3.fromRGB(255, 255, 255)
+auto1.TextScaled = true
+auto1.TextSize = 14.000
+auto1.TextTransparency = 1.000
+auto1.TextWrapped = true
+
+UICorner_4.CornerRadius = UDim.new(0, 15)
+UICorner_4.Parent = auto1
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(18, 18, 18)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(15, 15, 15)), ColorSequenceKeypoint.new(0.29, Color3.fromRGB(24, 24, 24)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(44, 44, 44))}
 UIGradient_3.Rotation = -90
-UIGradient_3.Parent = Frame_2
+UIGradient_3.Parent = auto1
+
+TextLabel_4.Parent = auto1
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Size = UDim2.new(1, 0, 1, 0)
+TextLabel_4.Font = Enum.Font.Gotham
+TextLabel_4.Text = "auto #1"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+
+UIAspectRatioConstraint_4.Parent = auto1
+UIAspectRatioConstraint_4.AspectRatio = 13.846
+
+dex.Name = "dex"
+dex.Parent = button_list
+dex.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+dex.BorderColor3 = Color3.fromRGB(0, 0, 0)
+dex.BorderSizePixel = 0
+dex.LayoutOrder = -1
+dex.Position = UDim2.new(0.309548259, 0, 0.441309273, 0)
+dex.Size = UDim2.new(0.739219725, 0, 0.117381476, 0)
+dex.Font = Enum.Font.Unknown
+dex.Text = ""
+dex.TextColor3 = Color3.fromRGB(255, 255, 255)
+dex.TextScaled = true
+dex.TextSize = 14.000
+dex.TextTransparency = 1.000
+dex.TextWrapped = true
+
+UICorner_5.CornerRadius = UDim.new(0, 15)
+UICorner_5.Parent = dex
+
+UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(18, 18, 18)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(15, 15, 15)), ColorSequenceKeypoint.new(0.29, Color3.fromRGB(24, 24, 24)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(44, 44, 44))}
+UIGradient_4.Rotation = -90
+UIGradient_4.Parent = dex
+
+TextLabel_5.Parent = dex
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_5.BorderSizePixel = 0
+TextLabel_5.Size = UDim2.new(1, 0, 1, 0)
+TextLabel_5.Font = Enum.Font.Gotham
+TextLabel_5.Text = "custom dex"
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 14.000
+TextLabel_5.TextWrapped = true
+
+UIAspectRatioConstraint_5.Parent = dex
+UIAspectRatioConstraint_5.AspectRatio = 13.846
+
+UIGradient_5.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(58, 58, 58)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.89, Color3.fromRGB(13, 13, 13)), ColorSequenceKeypoint.new(0.89, Color3.fromRGB(39, 39, 39)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))}
+UIGradient_5.Rotation = -90
+UIGradient_5.Parent = Frame_2
 
 compatibility_frame.Name = "compatibility_frame"
 compatibility_frame.Parent = Frame_2
@@ -186,8 +294,8 @@ compatibility_frame.Position = UDim2.new(0.0216322802, 0, 0.127545953, 0)
 compatibility_frame.Size = UDim2.new(0.95771873, 0, 0.743458986, 0)
 compatibility_frame.Visible = false
 
-UICorner_4.CornerRadius = UDim.new(0, 35)
-UICorner_4.Parent = compatibility_frame
+UICorner_6.CornerRadius = UDim.new(0, 35)
+UICorner_6.Parent = compatibility_frame
 
 UIListLayout_3.Parent = compatibility_frame
 UIListLayout_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -205,22 +313,22 @@ ScrollingFrame.Size = UDim2.new(1, 0, 1, 0)
 ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
 ScrollingFrame.ScrollBarThickness = 5
 
-TextLabel_4.Parent = ScrollingFrame
-TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_4.BackgroundTransparency = 1.000
-TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_4.BorderSizePixel = 0
-TextLabel_4.Position = UDim2.new(0.143737167, 0, 0, 0)
-TextLabel_4.Size = UDim2.new(0.71268338, 0, 0.103860438, 0)
-TextLabel_4.Font = Enum.Font.Gotham
-TextLabel_4.Text = "change ui size"
-TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_4.TextScaled = true
-TextLabel_4.TextSize = 14.000
-TextLabel_4.TextWrapped = true
+TextLabel_6.Parent = ScrollingFrame
+TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.BackgroundTransparency = 1.000
+TextLabel_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_6.BorderSizePixel = 0
+TextLabel_6.Position = UDim2.new(0.143737167, 0, 0, 0)
+TextLabel_6.Size = UDim2.new(0.71268338, 0, 0.103860438, 0)
+TextLabel_6.Font = Enum.Font.Gotham
+TextLabel_6.Text = "change ui size"
+TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.TextScaled = true
+TextLabel_6.TextSize = 14.000
+TextLabel_6.TextWrapped = true
 
-UIAspectRatioConstraint_4.Parent = TextLabel_4
-UIAspectRatioConstraint_4.AspectRatio = 15.087
+UIAspectRatioConstraint_6.Parent = TextLabel_6
+UIAspectRatioConstraint_6.AspectRatio = 15.087
 
 UIListLayout_4.Parent = ScrollingFrame
 UIListLayout_4.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -243,11 +351,11 @@ Scale.TextScaled = true
 Scale.TextSize = 14.000
 Scale.TextWrapped = true
 
-UICorner_5.CornerRadius = UDim.new(0, 15)
-UICorner_5.Parent = Scale
+UICorner_7.CornerRadius = UDim.new(0, 15)
+UICorner_7.Parent = Scale
 
-UIAspectRatioConstraint_5.Parent = Scale
-UIAspectRatioConstraint_5.AspectRatio = 16.500
+UIAspectRatioConstraint_7.Parent = Scale
+UIAspectRatioConstraint_7.AspectRatio = 16.500
 
 walk.Name = "walk"
 walk.Parent = ScrollingFrame
@@ -265,38 +373,39 @@ walk.TextSize = 14.000
 walk.TextTransparency = 1.000
 walk.TextWrapped = true
 
-UICorner_6.CornerRadius = UDim.new(0, 15)
-UICorner_6.Parent = walk
+UICorner_8.CornerRadius = UDim.new(0, 15)
+UICorner_8.Parent = walk
 
-UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(18, 18, 18)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(62, 62, 62)), ColorSequenceKeypoint.new(0.29, Color3.fromRGB(61, 61, 61)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(191, 191, 191))}
-UIGradient_4.Rotation = -90
-UIGradient_4.Parent = walk
+UIGradient_6.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(18, 18, 18)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(62, 62, 62)), ColorSequenceKeypoint.new(0.29, Color3.fromRGB(61, 61, 61)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(191, 191, 191))}
+UIGradient_6.Rotation = -90
+UIGradient_6.Parent = walk
 
-TextLabel_5.Parent = walk
-TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_5.BackgroundTransparency = 1.000
-TextLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_5.BorderSizePixel = 0
-TextLabel_5.Position = UDim2.new(0.067844823, 0, 0, 0)
-TextLabel_5.Size = UDim2.new(0.85735184, 0, 1, 0)
-TextLabel_5.Font = Enum.Font.Gotham
-TextLabel_5.Text = "customized walking control"
-TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_5.TextScaled = true
-TextLabel_5.TextSize = 14.000
-TextLabel_5.TextWrapped = true
+TextLabel_7.Parent = walk
+TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.BackgroundTransparency = 1.000
+TextLabel_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_7.BorderSizePixel = 0
+TextLabel_7.Position = UDim2.new(0.067844823, 0, 0, 0)
+TextLabel_7.Size = UDim2.new(0.85735184, 0, 1, 0)
+TextLabel_7.Font = Enum.Font.Gotham
+TextLabel_7.Text = "customized walking control"
+TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.TextScaled = true
+TextLabel_7.TextSize = 14.000
+TextLabel_7.TextWrapped = true
 
-UIAspectRatioConstraint_6.Parent = walk
-UIAspectRatioConstraint_6.AspectRatio = 10.934
+UIAspectRatioConstraint_8.Parent = walk
+UIAspectRatioConstraint_8.AspectRatio = 10.934
 
 TextButton.Parent = Frame_2
 TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.BackgroundTransparency = 1.000
 TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.0206535365, 0, 0.815803647, 0)
+TextButton.Position = UDim2.new(0.0255710445, 0, 0.909805655, 0)
 TextButton.Size = UDim2.new(0.155393273, 0, 0.0537154637, 0)
 TextButton.Visible = false
+TextButton.ZIndex = 5
 TextButton.Font = Enum.Font.Gotham
 TextButton.Text = "BACK"
 TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -304,12 +413,172 @@ TextButton.TextScaled = true
 TextButton.TextSize = 14.000
 TextButton.TextWrapped = true
 
-UIAspectRatioConstraint_7.Parent = TextButton
-UIAspectRatioConstraint_7.AspectRatio = 4.000
+UIAspectRatioConstraint_9.Parent = TextButton
+UIAspectRatioConstraint_9.AspectRatio = 4.000
+
+auto1_frame.Name = "auto1_frame"
+auto1_frame.Parent = Frame_2
+auto1_frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+auto1_frame.BackgroundTransparency = 0.950
+auto1_frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+auto1_frame.BorderSizePixel = 0
+auto1_frame.Position = UDim2.new(0.0216322802, 0, 0.127545953, 0)
+auto1_frame.Size = UDim2.new(0.95771873, 0, 0.743458986, 0)
+auto1_frame.Visible = false
+
+UICorner_9.CornerRadius = UDim.new(0, 35)
+UICorner_9.Parent = auto1_frame
+
+UIListLayout_5.Parent = auto1_frame
+UIListLayout_5.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_5.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_5.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout_5.Padding = UDim.new(0, 15)
+
+ScrollingFrame_2.Parent = auto1_frame
+ScrollingFrame_2.Active = true
+ScrollingFrame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScrollingFrame_2.BackgroundTransparency = 1.000
+ScrollingFrame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame_2.BorderSizePixel = 0
+ScrollingFrame_2.Size = UDim2.new(1, 0, 1, 0)
+ScrollingFrame_2.CanvasSize = UDim2.new(0, 0, 0, 0)
+ScrollingFrame_2.ScrollBarThickness = 5
+
+UIListLayout_6.Parent = ScrollingFrame_2
+UIListLayout_6.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_6.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_6.Padding = UDim.new(0, 15)
+
+orbs.Name = "orbs"
+orbs.Parent = ScrollingFrame_2
+orbs.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+orbs.BorderColor3 = Color3.fromRGB(0, 0, 0)
+orbs.BorderSizePixel = 0
+orbs.Position = UDim2.new(0.241811067, 0, 0.270940244, 0)
+orbs.Size = UDim2.new(0.590316176, 0, 0.146733344, 0)
+orbs.AutoButtonColor = false
+orbs.Font = Enum.Font.Unknown
+orbs.Text = ""
+orbs.TextColor3 = Color3.fromRGB(255, 255, 255)
+orbs.TextScaled = true
+orbs.TextSize = 14.000
+orbs.TextTransparency = 1.000
+orbs.TextWrapped = true
+
+UICorner_10.CornerRadius = UDim.new(0, 15)
+UICorner_10.Parent = orbs
+
+UIGradient_7.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(18, 18, 18)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(62, 62, 62)), ColorSequenceKeypoint.new(0.29, Color3.fromRGB(61, 61, 61)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(191, 191, 191))}
+UIGradient_7.Rotation = -90
+UIGradient_7.Parent = orbs
+
+TextLabel_8.Parent = orbs
+TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.BackgroundTransparency = 1.000
+TextLabel_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_8.BorderSizePixel = 0
+TextLabel_8.Position = UDim2.new(0.067844823, 0, 0, 0)
+TextLabel_8.Size = UDim2.new(0.85735184, 0, 1, 0)
+TextLabel_8.Font = Enum.Font.Gotham
+TextLabel_8.Text = "auto collect orbs"
+TextLabel_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.TextScaled = true
+TextLabel_8.TextSize = 14.000
+TextLabel_8.TextWrapped = true
+
+UIAspectRatioConstraint_10.Parent = orbs
+UIAspectRatioConstraint_10.AspectRatio = 10.934
+
+dex_frame.Name = "dex_frame"
+dex_frame.Parent = Frame_2
+dex_frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+dex_frame.BackgroundTransparency = 0.950
+dex_frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+dex_frame.BorderSizePixel = 0
+dex_frame.Position = UDim2.new(0.0216322802, 0, 0.127545953, 0)
+dex_frame.Size = UDim2.new(0.95771873, 0, 0.743458986, 0)
+dex_frame.Visible = false
+
+UICorner_11.CornerRadius = UDim.new(0, 35)
+UICorner_11.Parent = dex_frame
+
+UIListLayout_7.Parent = dex_frame
+UIListLayout_7.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_7.SortOrder = Enum.SortOrder.LayoutOrder
+
+ScrollingFrame_3.Parent = dex_frame
+ScrollingFrame_3.Active = true
+ScrollingFrame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScrollingFrame_3.BackgroundTransparency = 1.000
+ScrollingFrame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame_3.BorderSizePixel = 0
+ScrollingFrame_3.Position = UDim2.new(3.13391517e-08, 0, -6.89036739e-08, 0)
+ScrollingFrame_3.Size = UDim2.new(0.99999994, 0, 0.774216592, 0)
+ScrollingFrame_3.CanvasSize = UDim2.new(0, 0, 25, 0)
+ScrollingFrame_3.ScrollBarThickness = 5
+
+UIListLayout_8.Parent = ScrollingFrame_3
+UIListLayout_8.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_8.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_8.Padding = UDim.new(0, 15)
+
+TextButton_2.Parent = ScrollingFrame_3
+TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+TextButton_2.BackgroundTransparency = 1.000
+TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(0.0472199507, 0, 0, 0)
+TextButton_2.Size = UDim2.new(0.905560076, 0, 0.126412824, 0)
+TextButton_2.Visible = false
+TextButton_2.AutoButtonColor = false
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = "n/a"
+TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.TextScaled = true
+TextButton_2.TextSize = 14.000
+TextButton_2.TextWrapped = true
+
+UIAspectRatioConstraint_11.Parent = TextButton_2
+UIAspectRatioConstraint_11.AspectRatio = 15.750
+
+ButtonList.Name = "ButtonList"
+ButtonList.Parent = dex_frame
+ButtonList.Active = true
+ButtonList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonList.BackgroundTransparency = 1.000
+ButtonList.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonList.BorderSizePixel = 0
+ButtonList.Position = UDim2.new(0.0296700578, 0, 0.774216592, 0)
+ButtonList.Size = UDim2.new(0.989952087, 0, 0.207720876, 0)
+ButtonList.CanvasSize = UDim2.new(3, 0, 0, 0)
+ButtonList.ScrollBarThickness = 5
+
+UIListLayout_9.Parent = ButtonList
+UIListLayout_9.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout_9.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_9.VerticalAlignment = Enum.VerticalAlignment.Center
+
+Current.Name = "Current"
+Current.Parent = ButtonList
+Current.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Current.BackgroundTransparency = 1.000
+Current.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Current.BorderSizePixel = 0
+Current.Size = UDim2.new(0.207468882, 0, 0.543478251, 0)
+Current.Font = Enum.Font.SourceSans
+Current.Text = "Current"
+Current.TextColor3 = Color3.fromRGB(255, 255, 255)
+Current.TextScaled = true
+Current.TextSize = 14.000
+Current.TextWrapped = true
+
+UIAspectRatioConstraint_12.Parent = Current
+UIAspectRatioConstraint_12.AspectRatio = 4.000
 
 -- Scripts:
 
-local function BPCAWWB_fake_script() -- ScreenGui.LocalScript 
+local function YZKA_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local Player = game.Players.LocalPlayer
@@ -322,6 +591,7 @@ local function BPCAWWB_fake_script() -- ScreenGui.LocalScript
 	local W_Value = false
 	local S_Value = false
 	local D_Value = false
+	local OrbsValue = false
 	
 	script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.PlaceholderText = `current scale was {script.Parent.Frame.MainFrame.Size.X.Scale}`
 	
@@ -337,6 +607,121 @@ local function BPCAWWB_fake_script() -- ScreenGui.LocalScript
 			end
 		end
 	end
+	
+	local function createListButton(object)
+		for _,Dels in pairs(script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame:GetChildren()) do
+			if Dels:IsA("TextButton") then
+				if Dels.Name == "TextButton" then
+					--Pass
+				else
+					Dels:Destroy()
+				end
+			end
+		end
+		
+		for z,v in pairs(object:GetChildren()) do
+			if script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame:FindFirstChild(v.Name) then
+				--Pass
+			else
+				local Button = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.TextButton:Clone()
+				Button.Parent = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame; Button.Visible = true
+				Button.LayoutOrder = z;
+	
+				if v.Name == "Workspace" then
+					Button.Name = "workspace"; Button.Text = "workspace"
+					Button.Value.Value = workspace
+				else
+					Button.Name = v.Name; Button.Text = v.Name .. " - " .. v.ClassName
+					Button.Value.Value = v
+				end
+	
+				Button.MouseButton1Click:Once(function()
+					script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = Button.Value.Value
+					createListButton(Button.Value.Value)
+				end)
+			end
+		end
+	end
+	
+	local function addButton(object)
+		delay(0, function()
+			local Button = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.TextButton:Clone()
+			Button.Parent = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame; Button.Visible = true
+			Button.LayoutOrder = 0; Button.Name = object.Name; Button.Text = object.Name .. " - " .. object.ClassName; Button.Value.Value = object
+			
+			Button.MouseButton1Click:Once(function()
+				script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = Button.Value.Value
+				createListButton(object)
+			end)
+		end)
+	end
+	
+	delay(0, function()
+		while true do wait(0.1)
+			local pz = pcall(function()
+				if script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value == nil then
+					--Pass
+				else
+					for _,v in pairs(script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value:GetChildren()) do
+						if script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame:FindFirstChild(v.Name) then
+							--Pass
+						else
+							addButton(v)
+						end
+					end
+				end
+			end)
+		end
+	end)
+	
+	delay(0, function()
+		script.Parent.Frame.MainFrame.Frame.dex_frame.ButtonList.Current.MouseButton1Click:Connect(function()
+			script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = nil
+			
+			for _,Dels in pairs(script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame:GetChildren()) do
+				if Dels:IsA("TextButton") then
+					if Dels.Name == "TextButton" then
+						--Pass
+					else
+						Dels:Destroy()
+					end
+				end
+			end
+			
+			wait(0.1)
+			
+			for z,v in pairs(game:GetChildren()) do
+				delay(0, function()
+					local Button = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.TextButton:Clone()
+					Button.Parent = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame; Button.Visible = true
+					Button.LayoutOrder = z;
+	
+					if v.Name == "Workspace" then
+						Button.Name = "workspace"; Button.Text = "workspace"
+						Button.Value.Value = workspace
+					else
+						Button.Name = v.Name; Button.Text = v.Name
+						Button.Value.Value = v
+					end
+	
+					Button.MouseButton1Click:Once(function()
+						script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = Button.Value.Value
+						createListButton(Button.Value.Value)
+					end)
+				end)
+			end
+		end)
+	end)
+	
+	delay(0, function()
+		while true do wait(0.1)
+			if OrbsValue == true then
+				local pz = pcall(function()
+					
+				end)
+			end
+		end
+	end)
 	
 	UserInputService.InputEnded:Connect(function(hit)
 		if hit.KeyCode == Enum.KeyCode.Semicolon then
@@ -394,7 +779,6 @@ local function BPCAWWB_fake_script() -- ScreenGui.LocalScript
 	end)	
 	
 	UserInputService.InputBegan:Connect(function(hit)
-		print(hit.KeyCode)
 		if hit.KeyCode == Enum.KeyCode.KeypadEight then
 			W_Value = true
 			S_Value = false
@@ -479,4 +863,4 @@ local function BPCAWWB_fake_script() -- ScreenGui.LocalScript
 		end
 	end)
 end
-coroutine.wrap(BPCAWWB_fake_script)()
+coroutine.wrap(YZKA_fake_script)()
