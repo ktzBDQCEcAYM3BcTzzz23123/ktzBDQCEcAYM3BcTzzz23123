@@ -54,7 +54,6 @@ Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0, 0, -0.0570776276, 0)
 Frame.Size = UDim2.new(1, 0, 1.05707765, 0)
-Frame.Visible = false
 
 UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))}
 UIGradient.Rotation = -90
@@ -310,7 +309,7 @@ UIAspectRatioConstraint_7.AspectRatio = 4.000
 
 -- Scripts:
 
-local function YGMYYIX_fake_script() -- ScreenGui.LocalScript 
+local function BPCAWWB_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local Player = game.Players.LocalPlayer
@@ -395,22 +394,23 @@ local function YGMYYIX_fake_script() -- ScreenGui.LocalScript
 	end)	
 	
 	UserInputService.InputBegan:Connect(function(hit)
-		if hit.KeyCode == Enum.KeyCode.W then
+		print(hit.KeyCode)
+		if hit.KeyCode == Enum.KeyCode.KeypadEight then
 			W_Value = true
 			S_Value = false
 			D_Value = false
 			A_Value = false
-		elseif hit.KeyCode == Enum.KeyCode.S then
+		elseif hit.KeyCode == Enum.KeyCode.KeypadFive then
 			W_Value = false
 			S_Value = true
 			D_Value = false
 			A_Value = false
-		elseif hit.KeyCode == Enum.KeyCode.D then
+		elseif hit.KeyCode == Enum.KeyCode.KeypadSix then
 			W_Value = false
 			S_Value = false
 			D_Value = true
 			A_Value = false
-		elseif hit.KeyCode == Enum.KeyCode.A then
+		elseif hit.KeyCode == Enum.KeyCode.KeypadFour then
 			W_Value = false
 			S_Value = false
 			D_Value = false
@@ -419,13 +419,13 @@ local function YGMYYIX_fake_script() -- ScreenGui.LocalScript
 	end)
 	
 	UserInputService.InputEnded:Connect(function(hit)
-		if hit.KeyCode == Enum.KeyCode.W then
+		if hit.KeyCode == Enum.KeyCode.KeypadEight then
 			W_Value = false
-		elseif hit.KeyCode == Enum.KeyCode.S then
+		elseif hit.KeyCode == Enum.KeyCode.KeypadFive then
 			S_Value = false
-		elseif hit.KeyCode == Enum.KeyCode.D then
+		elseif hit.KeyCode == Enum.KeyCode.KeypadSix then
 			D_Value = false
-		elseif hit.KeyCode == Enum.KeyCode.A then
+		elseif hit.KeyCode == Enum.KeyCode.KeypadFour then
 			A_Value = false
 		end
 	end)
@@ -479,4 +479,4 @@ local function YGMYYIX_fake_script() -- ScreenGui.LocalScript
 		end
 	end)
 end
-coroutine.wrap(YGMYYIX_fake_script)()
+coroutine.wrap(BPCAWWB_fake_script)()
