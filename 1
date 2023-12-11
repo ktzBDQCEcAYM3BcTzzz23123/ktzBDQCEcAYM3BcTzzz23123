@@ -1,0 +1,482 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UIGradient = Instance.new("UIGradient")
+local UIListLayout = Instance.new("UIListLayout")
+local MainFrame = Instance.new("Frame")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local Frame_2 = Instance.new("Frame")
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local button_list = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local UIListLayout_2 = Instance.new("UIListLayout")
+local compatibility = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UIGradient_2 = Instance.new("UIGradient")
+local TextLabel_3 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
+local UIGradient_3 = Instance.new("UIGradient")
+local compatibility_frame = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local UIListLayout_3 = Instance.new("UIListLayout")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local TextLabel_4 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
+local UIListLayout_4 = Instance.new("UIListLayout")
+local Scale = Instance.new("TextBox")
+local UICorner_5 = Instance.new("UICorner")
+local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
+local walk = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local UIGradient_4 = Instance.new("UIGradient")
+local TextLabel_5 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
+local TextButton = Instance.new("TextButton")
+local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 0.300
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0, 0, -0.0570776276, 0)
+Frame.Size = UDim2.new(1, 0, 1.05707765, 0)
+Frame.Visible = false
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))}
+UIGradient.Rotation = -90
+UIGradient.Parent = Frame
+
+UIListLayout.Parent = Frame
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = Frame
+MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainFrame.BackgroundTransparency = 1.000
+MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.35237214, 0, 0.0727591738, 0)
+MainFrame.Size = UDim2.new(0.663999975, 0, 0.663999975, 0)
+
+UIAspectRatioConstraint.Parent = MainFrame
+
+Frame_2.Parent = MainFrame
+Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(-0.534552872, 0, -0.105691083, 0)
+Frame_2.Size = UDim2.new(2.06707311, 0, 1.25812995, 0)
+
+UIAspectRatioConstraint_2.Parent = Frame_2
+UIAspectRatioConstraint_2.AspectRatio = 1.707
+
+UICorner.CornerRadius = UDim.new(0, 35)
+UICorner.Parent = Frame_2
+
+TextLabel.Parent = Frame_2
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(3.0007449e-08, 0, 0, 0)
+TextLabel.Size = UDim2.new(0.99999994, 0, 0.0923030227, 0)
+TextLabel.Font = Enum.Font.Unknown
+TextLabel.Text = "kurumi's private script"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextLabel_2.Parent = Frame_2
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(-0.000983254053, 0, 0.911282599, 0)
+TextLabel_2.Size = UDim2.new(0.99999994, 0, 0.0620947629, 0)
+TextLabel_2.Font = Enum.Font.Unknown
+TextLabel_2.Text = "👑 kurumi & marco polo 👑"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+button_list.Name = "button_list"
+button_list.Parent = Frame_2
+button_list.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+button_list.BackgroundTransparency = 0.950
+button_list.BorderColor3 = Color3.fromRGB(0, 0, 0)
+button_list.BorderSizePixel = 0
+button_list.Position = UDim2.new(0.0216322802, 0, 0.127545953, 0)
+button_list.Size = UDim2.new(0.95771873, 0, 0.743458986, 0)
+
+UICorner_2.CornerRadius = UDim.new(0, 35)
+UICorner_2.Parent = button_list
+
+UIListLayout_2.Parent = button_list
+UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout_2.Padding = UDim.new(0, 15)
+
+compatibility.Name = "compatibility"
+compatibility.Parent = button_list
+compatibility.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+compatibility.BorderColor3 = Color3.fromRGB(0, 0, 0)
+compatibility.BorderSizePixel = 0
+compatibility.Position = UDim2.new(0.309548259, 0, 0.441309273, 0)
+compatibility.Size = UDim2.new(0.739219725, 0, 0.117381476, 0)
+compatibility.Font = Enum.Font.Unknown
+compatibility.Text = ""
+compatibility.TextColor3 = Color3.fromRGB(255, 255, 255)
+compatibility.TextScaled = true
+compatibility.TextSize = 14.000
+compatibility.TextTransparency = 1.000
+compatibility.TextWrapped = true
+
+UICorner_3.CornerRadius = UDim.new(0, 15)
+UICorner_3.Parent = compatibility
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(18, 18, 18)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(15, 15, 15)), ColorSequenceKeypoint.new(0.29, Color3.fromRGB(24, 24, 24)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(44, 44, 44))}
+UIGradient_2.Rotation = -90
+UIGradient_2.Parent = compatibility
+
+TextLabel_3.Parent = compatibility
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Size = UDim2.new(1, 0, 1, 0)
+TextLabel_3.Font = Enum.Font.Gotham
+TextLabel_3.Text = "compatibility"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+UIAspectRatioConstraint_3.Parent = compatibility
+UIAspectRatioConstraint_3.AspectRatio = 13.846
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(58, 58, 58)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.89, Color3.fromRGB(13, 13, 13)), ColorSequenceKeypoint.new(0.89, Color3.fromRGB(39, 39, 39)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))}
+UIGradient_3.Rotation = -90
+UIGradient_3.Parent = Frame_2
+
+compatibility_frame.Name = "compatibility_frame"
+compatibility_frame.Parent = Frame_2
+compatibility_frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+compatibility_frame.BackgroundTransparency = 0.950
+compatibility_frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+compatibility_frame.BorderSizePixel = 0
+compatibility_frame.Position = UDim2.new(0.0216322802, 0, 0.127545953, 0)
+compatibility_frame.Size = UDim2.new(0.95771873, 0, 0.743458986, 0)
+compatibility_frame.Visible = false
+
+UICorner_4.CornerRadius = UDim.new(0, 35)
+UICorner_4.Parent = compatibility_frame
+
+UIListLayout_3.Parent = compatibility_frame
+UIListLayout_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_3.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout_3.Padding = UDim.new(0, 15)
+
+ScrollingFrame.Parent = compatibility_frame
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScrollingFrame.BackgroundTransparency = 1.000
+ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Size = UDim2.new(1, 0, 1, 0)
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+ScrollingFrame.ScrollBarThickness = 5
+
+TextLabel_4.Parent = ScrollingFrame
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(0.143737167, 0, 0, 0)
+TextLabel_4.Size = UDim2.new(0.71268338, 0, 0.103860438, 0)
+TextLabel_4.Font = Enum.Font.Gotham
+TextLabel_4.Text = "change ui size"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+
+UIAspectRatioConstraint_4.Parent = TextLabel_4
+UIAspectRatioConstraint_4.AspectRatio = 15.087
+
+UIListLayout_4.Parent = ScrollingFrame
+UIListLayout_4.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_4.Padding = UDim.new(0, 15)
+
+Scale.Name = "Scale"
+Scale.Parent = ScrollingFrame
+Scale.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Scale.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Scale.BorderSizePixel = 0
+Scale.Position = UDim2.new(0.236081228, 0, 0.115149617, 0)
+Scale.Size = UDim2.new(0.745544851, 0, 0.0993447676, 0)
+Scale.ClearTextOnFocus = false
+Scale.Font = Enum.Font.Unknown
+Scale.PlaceholderText = "current scale was"
+Scale.Text = ""
+Scale.TextColor3 = Color3.fromRGB(255, 255, 255)
+Scale.TextScaled = true
+Scale.TextSize = 14.000
+Scale.TextWrapped = true
+
+UICorner_5.CornerRadius = UDim.new(0, 15)
+UICorner_5.Parent = Scale
+
+UIAspectRatioConstraint_5.Parent = Scale
+UIAspectRatioConstraint_5.AspectRatio = 16.500
+
+walk.Name = "walk"
+walk.Parent = ScrollingFrame
+walk.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+walk.BorderColor3 = Color3.fromRGB(0, 0, 0)
+walk.BorderSizePixel = 0
+walk.Position = UDim2.new(0.241811067, 0, 0.270940244, 0)
+walk.Size = UDim2.new(0.590316176, 0, 0.146733344, 0)
+walk.AutoButtonColor = false
+walk.Font = Enum.Font.Unknown
+walk.Text = ""
+walk.TextColor3 = Color3.fromRGB(255, 255, 255)
+walk.TextScaled = true
+walk.TextSize = 14.000
+walk.TextTransparency = 1.000
+walk.TextWrapped = true
+
+UICorner_6.CornerRadius = UDim.new(0, 15)
+UICorner_6.Parent = walk
+
+UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(18, 18, 18)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(62, 62, 62)), ColorSequenceKeypoint.new(0.29, Color3.fromRGB(61, 61, 61)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(191, 191, 191))}
+UIGradient_4.Rotation = -90
+UIGradient_4.Parent = walk
+
+TextLabel_5.Parent = walk
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_5.BorderSizePixel = 0
+TextLabel_5.Position = UDim2.new(0.067844823, 0, 0, 0)
+TextLabel_5.Size = UDim2.new(0.85735184, 0, 1, 0)
+TextLabel_5.Font = Enum.Font.Gotham
+TextLabel_5.Text = "customized walking control"
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 14.000
+TextLabel_5.TextWrapped = true
+
+UIAspectRatioConstraint_6.Parent = walk
+UIAspectRatioConstraint_6.AspectRatio = 10.934
+
+TextButton.Parent = Frame_2
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 1.000
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.0206535365, 0, 0.815803647, 0)
+TextButton.Size = UDim2.new(0.155393273, 0, 0.0537154637, 0)
+TextButton.Visible = false
+TextButton.Font = Enum.Font.Gotham
+TextButton.Text = "BACK"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+UIAspectRatioConstraint_7.Parent = TextButton
+UIAspectRatioConstraint_7.AspectRatio = 4.000
+
+-- Scripts:
+
+local function YGMYYIX_fake_script() -- ScreenGui.LocalScript 
+	local script = Instance.new('LocalScript', ScreenGui)
+
+	local Player = game.Players.LocalPlayer
+	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService('TweenService')
+	local RunService = game:GetService("RunService")
+	
+	local customizedWalkingControl = false
+	local A_Value = false
+	local W_Value = false
+	local S_Value = false
+	local D_Value = false
+	
+	script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.PlaceholderText = `current scale was {script.Parent.Frame.MainFrame.Size.X.Scale}`
+	
+	local function changeScale(scale_x)
+		if tonumber(scale_x) == nil then
+			script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.Text = ""
+		else
+			if tonumber(scale_x) >= 0.4 and tonumber(scale_x) <= 0.8 then
+				script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.PlaceholderText = `current scale was {script.Parent.Frame.MainFrame.Size.X.Scale}`
+				TweenService:Create(script.Parent.Frame.MainFrame,TweenInfo.new(1,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{Size=UDim2.new(scale_x,0,scale_x,0)}):Play()
+			else
+				script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.PlaceholderText = "maximum is 0.4 & 0.8 scales"
+			end
+		end
+	end
+	
+	UserInputService.InputEnded:Connect(function(hit)
+		if hit.KeyCode == Enum.KeyCode.Semicolon then
+			if script.Parent.Frame.Visible == true then
+				script.Parent.Frame.Visible = false
+			else
+				script.Parent.Frame.Visible = true
+			end
+		end
+	end)
+	
+	script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.Changed:Connect(function()
+		changeScale(script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.Text)
+	end)
+	
+	script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.walk.MouseButton1Click:Connect(function()
+		if customizedWalkingControl == false then
+			customizedWalkingControl = true
+			TweenService:Create(script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.walk,TweenInfo.new(0.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{BackgroundColor3=Color3.new(0.333333, 1, 0.498039)}):Play()
+		else
+			customizedWalkingControl = false
+			TweenService:Create(script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.walk,TweenInfo.new(0.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{BackgroundColor3=Color3.new(1, 0, 0)}):Play()
+		end
+	end)
+	
+	script.Parent.Frame.MainFrame.Frame.TextButton.MouseButton1Click:Connect(function()
+		for _,v in pairs(script.Parent.Frame.MainFrame.Frame:GetChildren()) do
+			if v:IsA("Frame") then
+				if v.Name == "button_list" then
+					v.Visible = true
+				else
+					v.Visible = false
+				end
+			end
+		end
+		
+		script.Parent.Frame.MainFrame.Frame.TextButton.Visible = false
+	end)
+	
+	delay(0, function()
+		for _,Button in pairs(script.Parent.Frame.MainFrame.Frame.button_list:GetChildren()) do
+			if Button:IsA("TextButton") then
+				delay(0, function()
+					Button.MouseButton1Click:Connect(function()
+						if script.Parent.Frame.MainFrame.Frame:FindFirstChild(Button.Name .. "_frame") then
+							script.Parent.Frame.MainFrame.Frame.button_list.Visible = false; script.Parent.Frame.MainFrame.Frame.TextButton.Visible = true
+							script.Parent.Frame.MainFrame.Frame:FindFirstChild(Button.Name .. "_frame").Visible = true
+						else
+							--Pass
+						end
+					end)
+				end)
+			end
+		end
+	end)	
+	
+	UserInputService.InputBegan:Connect(function(hit)
+		if hit.KeyCode == Enum.KeyCode.W then
+			W_Value = true
+			S_Value = false
+			D_Value = false
+			A_Value = false
+		elseif hit.KeyCode == Enum.KeyCode.S then
+			W_Value = false
+			S_Value = true
+			D_Value = false
+			A_Value = false
+		elseif hit.KeyCode == Enum.KeyCode.D then
+			W_Value = false
+			S_Value = false
+			D_Value = true
+			A_Value = false
+		elseif hit.KeyCode == Enum.KeyCode.A then
+			W_Value = false
+			S_Value = false
+			D_Value = false
+			A_Value = true
+		end
+	end)
+	
+	UserInputService.InputEnded:Connect(function(hit)
+		if hit.KeyCode == Enum.KeyCode.W then
+			W_Value = false
+		elseif hit.KeyCode == Enum.KeyCode.S then
+			S_Value = false
+		elseif hit.KeyCode == Enum.KeyCode.D then
+			D_Value = false
+		elseif hit.KeyCode == Enum.KeyCode.A then
+			A_Value = false
+		end
+	end)
+	
+	
+	delay(0, function()
+		while true do task.wait(0.01)
+			if customizedWalkingControl == true then
+				local handleError = pcall(function()
+					local modifiedPart = Instance.new("Part"); modifiedPart.Anchored = true;
+					modifiedPart.CanCollide = false; modifiedPart.CanQuery = false; modifiedPart.CanTouch = false
+					modifiedPart.CFrame = workspace.CurrentCamera.CFrame
+	
+					local x,y,z = CFrame.lookAt(modifiedPart.Position, workspace:FindFirstChild(Player.Name).HumanoidRootPart.Position):ToOrientation()
+					local modifiedCFrame = CFrame.fromOrientation(0,y,0)
+					modifiedPart:Destroy()
+	
+					workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame = CFrame.new(workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame.X,workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame.Y,workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame.Z) * modifiedCFrame
+				end)
+				
+				if W_Value == true then
+					local Part = Instance.new("Part")
+					Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
+					Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(0,0,-6)
+					
+					workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
+					Part:Destroy()
+				elseif S_Value == true then
+					local Part = Instance.new("Part")
+					Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
+					Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(0,0,6)
+	
+					workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
+					Part:Destroy()
+				elseif A_Value == true then
+					local Part = Instance.new("Part")
+					Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
+					Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(-6,0,0)
+	
+					workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
+					Part:Destroy()
+				elseif D_Value == true then
+					local Part = Instance.new("Part")
+					Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
+					Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(6,0,0)
+	
+					workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
+					Part:Destroy()
+				end
+			end
+		end
+	end)
+end
+coroutine.wrap(YGMYYIX_fake_script)()
