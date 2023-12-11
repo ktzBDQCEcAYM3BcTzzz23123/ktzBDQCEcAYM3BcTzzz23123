@@ -507,6 +507,9 @@ UIListLayout_7.Parent = dex_frame
 UIListLayout_7.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout_7.SortOrder = Enum.SortOrder.LayoutOrder
 
+local selectedObject = Instance.new("ObjectValue")
+selectedObject.Name = "selectedObject"; selectedObject.Parent = dex_frame
+
 ScrollingFrame_3.Parent = dex_frame
 ScrollingFrame_3.Active = true
 ScrollingFrame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -538,6 +541,9 @@ TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextButton_2.TextScaled = true
 TextButton_2.TextSize = 14.000
 TextButton_2.TextWrapped = true
+
+local VS_2 = Instance.new("ObjectValue")
+VS_2.Name = "Value"; VS_2.Parent = TextButton_2
 
 UIAspectRatioConstraint_11.Parent = TextButton_2
 UIAspectRatioConstraint_11.AspectRatio = 15.750
@@ -572,6 +578,9 @@ Current.TextColor3 = Color3.fromRGB(255, 255, 255)
 Current.TextScaled = true
 Current.TextSize = 14.000
 Current.TextWrapped = true
+
+local VS_1 = Instance.new("ObjectValue")
+VS_1.Name = "Value"; VS_1.Parent = Current
 
 UIAspectRatioConstraint_12.Parent = Current
 UIAspectRatioConstraint_12.AspectRatio = 4.000
