@@ -14,7 +14,7 @@ delay(0, function()
 end)
 
 local function AutoBreakClick(areaName,ClickType)
-	delay(0, function()
+	local handleError = pcall(function()
 		local breakableTable = {}
 		local breakableID = nil
 
@@ -56,7 +56,7 @@ local function AutoBreakClick(areaName,ClickType)
 end
 
 local function teleportToArea(areaName)
-	delay(0, function()
+	local handleError = pcall(function()
 		local args = {
 			[1] = tostring(areaName)
 		}
@@ -97,7 +97,7 @@ local function teleportToArea(areaName)
 end
 
 local function getMission()
-	delay(0, function()
+	local handleError = pcall(function()
 		local TaskTable = {}
 
 		for _,MissionText in pairs(Player.PlayerGui.GoalsSide.Frame.Quests.QuestsGradient.QuestsHolder:GetChildren()) do
@@ -133,7 +133,7 @@ local function getMission()
 end
 
 local function openEgg(eggName)
-	delay(0, function()
+	local handleError = pcall(function()
 		local getEggID = nil
 		local priceTable = {}
 		local PlayerBalance = 0
@@ -293,7 +293,7 @@ local function openEgg(eggName)
 end
 
 local function getLastArea()
-	delay(0, function()
+	local handleError = pcall(function()
 		local MapTable = {}
 
 		for _,MapButton in pairs(Player.PlayerGui.TeleportMap.Frame.Map.Locations:GetChildren()) do
