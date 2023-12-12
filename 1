@@ -78,7 +78,7 @@ local UICorner_12 = Instance.new("UICorner")
 local UIListLayout_8 = Instance.new("UIListLayout")
 local ScrollingFrame_3 = Instance.new("ScrollingFrame")
 local UIListLayout_9 = Instance.new("UIListLayout")
-local TextButton_3 = Instance.new("TextButton")
+local dexesbutton = Instance.new("TextButton")
 local UIAspectRatioConstraint_13 = Instance.new("UIAspectRatioConstraint")
 local ButtonList = Instance.new("ScrollingFrame")
 local UIListLayout_10 = Instance.new("UIListLayout")
@@ -653,23 +653,24 @@ UIListLayout_9.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout_9.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout_9.Padding = UDim.new(0, 15)
 
-TextButton_3.Parent = ScrollingFrame_3
-TextButton_3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-TextButton_3.BackgroundTransparency = 1.000
-TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_3.BorderSizePixel = 0
-TextButton_3.Position = UDim2.new(0.0472199507, 0, 0, 0)
-TextButton_3.Size = UDim2.new(0.905560076, 0, 0.126412824, 0)
-TextButton_3.Visible = false
-TextButton_3.AutoButtonColor = false
-TextButton_3.Font = Enum.Font.SourceSans
-TextButton_3.Text = "n/a"
-TextButton_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButton_3.TextScaled = true
-TextButton_3.TextSize = 14.000
-TextButton_3.TextWrapped = true
+dexesbutton.Name = "dexesbutton"
+dexesbutton.Parent = ScrollingFrame_3
+dexesbutton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+dexesbutton.BackgroundTransparency = 1.000
+dexesbutton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+dexesbutton.BorderSizePixel = 0
+dexesbutton.Position = UDim2.new(0.0472199507, 0, 0, 0)
+dexesbutton.Size = UDim2.new(0.905560076, 0, 0.126412824, 0)
+dexesbutton.Visible = false
+dexesbutton.AutoButtonColor = false
+dexesbutton.Font = Enum.Font.SourceSans
+dexesbutton.Text = "n/a"
+dexesbutton.TextColor3 = Color3.fromRGB(255, 255, 255)
+dexesbutton.TextScaled = true
+dexesbutton.TextSize = 14.000
+dexesbutton.TextWrapped = true
 
-UIAspectRatioConstraint_13.Parent = TextButton_3
+UIAspectRatioConstraint_13.Parent = dexesbutton
 UIAspectRatioConstraint_13.AspectRatio = 15.750
 
 ButtonList.Name = "ButtonList"
@@ -710,14 +711,14 @@ local VS_1 = Instance.new("ObjectValue")
 VS_1.Name = "Value"; VS_1.Parent = Current
 
 local VS_2 = Instance.new("ObjectValue")
-VS_2.Name = "Value"; VS_2.Parent = TextButton_2
+VS_2.Name = "Value"; VS_2.Parent = dexesbutton
 
 local selectedObject = Instance.new("ObjectValue")
 selectedObject.Name = "selectedObject"; selectedObject.Parent = dex_frame
 
 -- Scripts:
 
-local function SAALZNK_fake_script() -- ScreenGui.LocalScript 
+local function QDBWB_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local Player = game.Players.LocalPlayer
@@ -1118,4 +1119,4 @@ local function SAALZNK_fake_script() -- ScreenGui.LocalScript
 	end)
 	--
 end
-coroutine.wrap(SAALZNK_fake_script)()
+coroutine.wrap(QDBWB_fake_script)()
