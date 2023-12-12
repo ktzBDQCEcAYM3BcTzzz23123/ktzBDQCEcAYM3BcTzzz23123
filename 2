@@ -42,18 +42,27 @@ local function AutoBreakClick(areaName,ClickType)
 end
 
 local function teleportToArea(areaName)
-	local args = {
-		[1] = tostring(areaName)
-	}
+	delay(0, function()
+		local args = {
+			[1] = tostring(areaName)
+		}
 
-	game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
+		game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
+	end)
+	
 	local setBreak = false
+	local totalChecks = 0
 
 	for keepChecking = 1,math.huge do wait(0.2)
 		if setBreak == false then
 			local totalArea = #workspace.Map:GetChildren()
+			totalChecks = totalChecks +1
+			
+			if totalChecks >= 100 then
+				break
+			end
 
-			if totalArea >= 5 then
+			if totalArea >= 1 then
 				for _,Area in pairs(workspace.Map:GetChildren()) do
 					if Area:IsA("Folder") then
 						if string.find(Area.Name, tostring(areaName)) then
@@ -336,7 +345,7 @@ delay(0, function()
 			local isEnough = nil; print(eggResponse)
 
 			if eggResponse == "Not Enough" then
-				isEnough = false; print("Not Enough")
+				isEnough = false; print("Not Enough 2")
 				teleportToArea("Spawn")
 				AutoBreakClick("Spawn", "Focused")
 			end
