@@ -311,71 +311,74 @@ delay(0, function()
 	while _G.AutoRank do wait(0.3)
 		local Response = getMission()
 		
-		local pz = pcall(function()
-			for _,Orbs in pairs(workspace["__THINGS"].Orbs:GetChildren()) do
-				if Orbs:IsA("Part") then
-					local args = {
-						[1] = {
-							[1] = tonumber(Orbs.Name)
+		delay(0, function()
+			local pz = pcall(function()
+				for _,Orbs in pairs(workspace["__THINGS"].Orbs:GetChildren()) do
+					if Orbs:IsA("Part") then
+						local args = {
+							[1] = {
+								[1] = tonumber(Orbs.Name)
+							}
 						}
-					}
 
-					game:GetService("ReplicatedStorage").Network:FindFirstChild("Orbs: Collect"):FireServer(unpack(args))
-					task.wait(); Orbs:Destroy()
+						game:GetService("ReplicatedStorage").Network:FindFirstChild("Orbs: Collect"):FireServer(unpack(args))
+						task.wait(); Orbs:Destroy()
+					end
 				end
-			end
-		end)
+			end)
 
-		local lootHandling = pcall(function()
-			local lootTable = {}
+			local lootHandling = pcall(function()
+				local lootTable = {}
 
-			for _,Loot in pairs(workspace["__THINGS"].Lootbags:GetChildren()) do
-				table.insert(lootTable, tostring(Loot.Name))
-			end
+				for _,Loot in pairs(workspace["__THINGS"].Lootbags:GetChildren()) do
+					table.insert(lootTable, tostring(Loot.Name))
+				end
 
-			local args = {
-				[1] = lootTable
-			}
+				local args = {
+					[1] = lootTable
+				}
 
-			game:GetService("ReplicatedStorage").Network.Lootbags_Claim:FireServer(unpack(args))
+				game:GetService("ReplicatedStorage").Network.Lootbags_Claim:FireServer(unpack(args))
 
-			for z,TableValue in pairs(lootTable) do
+				for z,TableValue in pairs(lootTable) do
+					local pz = pcall(function()
+						workspace["__THINGS"].Lootbags:FindFirstChild(TableValue):Destroy()
+					end)
+
+					table.remove(lootTable, z)
+				end
+			end)
+
+			if Response["Easy"][1] == "Normal Break" then
 				local pz = pcall(function()
-					workspace["__THINGS"].Lootbags:FindFirstChild(TableValue):Destroy()
+					teleportToArea("Spawn")
 				end)
 
-				table.remove(lootTable, z)
-			end
-		end)
-		
-		if Response["Easy"][1] == "Normal Break" then
-			local pz = pcall(function()
-				teleportToArea("Spawn")
-			end)
-			
-			local pz = pcall(function()
-				AutoBreakClick("Spawn","Focused")
-			end)
-		elseif Response["Easy"][1] == "Normal Hatch" then
-			local eggResponse = openEgg("Cracked Egg")
-			local isEnough = nil; print(eggResponse)
+				local pz = pcall(function()
+					AutoBreakClick("Spawn","Focused")
+				end)
+			elseif Response["Easy"][1] == "Normal Hatch" then
+				local eggResponse = openEgg("Cracked Egg")
+				local isEnough = nil; print(eggResponse)
 
-			if eggResponse == "Not Enough" then
-				isEnough = false; print("Not Enough 2")
-				teleportToArea("Spawn")
-				AutoBreakClick("Spawn", "Focused")
-			end
-			
-			print(isEnough)
-			
-			if isEnough == true then
-				if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
-					--Pass
-				else
-					print("Teleporting")
-					Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame
+				if eggResponse == "Not Enough" then
+					isEnough = false;
+					print("Not Enough 2")
+					teleportToArea("Spawn")
+					AutoBreakClick("Spawn", "Focused")
+				end
+
+				print(isEnough)
+
+				if isEnough == true then
+					if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
+						--Pass
+					else
+						print("Teleporting")
+						Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame
+					end
 				end
 			end
-		end
+		end)
 	end
 end)
