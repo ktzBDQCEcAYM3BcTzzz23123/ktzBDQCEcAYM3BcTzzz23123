@@ -168,7 +168,6 @@ button_list.BorderColor3 = Color3.fromRGB(0, 0, 0)
 button_list.BorderSizePixel = 0
 button_list.Position = UDim2.new(0.0216322802, 0, 0.127545953, 0)
 button_list.Size = UDim2.new(0.95771873, 0, 0.743458986, 0)
-button_list.Visible = false
 
 UICorner_2.CornerRadius = UDim.new(0, 35)
 UICorner_2.Parent = button_list
@@ -437,6 +436,7 @@ auto1_frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 auto1_frame.BorderSizePixel = 0
 auto1_frame.Position = UDim2.new(0.0216322802, 0, 0.127545953, 0)
 auto1_frame.Size = UDim2.new(0.95771873, 0, 0.743458986, 0)
+auto1_frame.Visible = false
 
 UICorner_9.CornerRadius = UDim.new(0, 35)
 UICorner_9.Parent = auto1_frame
@@ -717,7 +717,7 @@ selectedObject.Name = "selectedObject"; selectedObject.Parent = dex_frame
 
 -- Scripts:
 
-local function VBOKJPX_fake_script() -- ScreenGui.LocalScript 
+local function RZUYEL_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local Player = game.Players.LocalPlayer
@@ -739,6 +739,7 @@ local function VBOKJPX_fake_script() -- ScreenGui.LocalScript
 			delay(0, function()
 				print(Eggs.Name)
 				local EggButton = script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.Frame.TextButton:Clone()
+				EggButton.Parent = script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.Frame
 				EggButton.Name = Eggs.Name; EggButton.Text = Eggs.Name; EggButton.Visible = true
 				
 				EggButton.MouseButton1Click:Connect(function()
@@ -989,21 +990,23 @@ local function VBOKJPX_fake_script() -- ScreenGui.LocalScript
 			
 			for z,v in pairs(game:GetChildren()) do
 				if v:IsA("Workspace") or v:IsA("ReplicatedStorage") or v:IsA("Player") or v:IsA("Lighting") or v:IsA("ReplicatedFirst") or v:IsA("StarterPack") or v:IsA("Teams") then
-					local Button = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.TextButton:Clone()
-					Button.Parent = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame; Button.Visible = true
-					Button.LayoutOrder = z;
+					delay(0, function()
+						local Button = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.TextButton:Clone()
+						Button.Parent = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame; Button.Visible = true
+						Button.LayoutOrder = z;
 	
-					if v.Name == "Workspace" then
-						Button.Name = "workspace"; Button.Text = "workspace"
-						Button.Value.Value = workspace
-					else
-						Button.Name = v.Name; Button.Text = v.Name
-						Button.Value.Value = v
-					end
+						if v.Name == "Workspace" then
+							Button.Name = "workspace"; Button.Text = "workspace"
+							Button.Value.Value = workspace
+						else
+							Button.Name = v.Name; Button.Text = v.Name
+							Button.Value.Value = v
+						end
 	
-					Button.MouseButton1Click:Once(function()
-						script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = Button.Value.Value
-						createListButton(Button.Value.Value)
+						Button.MouseButton1Click:Once(function()
+							script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = Button.Value.Value
+							createListButton(Button.Value.Value)
+						end)
 					end)
 				end
 			end
@@ -1104,15 +1107,17 @@ local function VBOKJPX_fake_script() -- ScreenGui.LocalScript
 	end)
 	
 	--Bypass
-	local script = game.Players.LocalPlayer.PlayerScripts.Scripts.Game["Egg Opening Frontend"]
+	local pz = pcall(function()
+		local script = game.Players.LocalPlayer.PlayerScripts.Scripts.Game["Egg Opening Frontend"]
 	
-	for i,v in pairs(getsenv(script)) do
-		if string.find(i,"Animation") then
-			for a,b in pairs(getupvalues(v)) do
-				setupvalue(v,a,nil)
+		for i,v in pairs(getsenv(script)) do
+			if string.find(i,"Animation") then
+				for a,b in pairs(getupvalues(v)) do
+					setupvalue(v,a,nil)
+				end
 			end
 		end
-	end
+	end)
 	--
 end
-coroutine.wrap(VBOKJPX_fake_script)()
+coroutine.wrap(RZUYEL_fake_script)()
