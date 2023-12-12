@@ -203,6 +203,8 @@ local function openEgg(eggName)
 	end
 
 	local eggObject = workspace["__THINGS"].Eggs.Main:FindFirstChild(tostring(getEggID) .. " - Egg Capsule")
+	local eggCFrame = eggObject.Egg.CFrame
+	local eggPosition = eggObject.Egg.Position
 	local getEggPrice = eggObject.PriceHUD.PriceHUD
 	local totalPrice = 0
 
@@ -265,20 +267,20 @@ local function openEgg(eggName)
 		end
 	end
 
-
-
 	local quantity = tonumber(tostring(Player.PlayerGui["_MACHINES"].EggSlotsMachine.Frame.Slots.Items.Title.Remaining.Text):split("/")[1])
-	print(quantity)
 	local allCost = totalPrice*quantity
-	print(allCost)
 
 	if PlayerBalance >= allCost then
-		local args = {
-			[1] = tostring(eggName),
-			[2] = tonumber(quantity)
-		}
+		if Player:DistanceFromCharacter(eggPosition) <= 12.5 then
+			local args = {
+				[1] = tostring(eggName),
+				[2] = tonumber(quantity)
+			}
 
-		game:GetService("ReplicatedStorage").Network.Eggs_RequestPurchase:InvokeServer(unpack(args))
+			game:GetService("ReplicatedStorage").Network.Eggs_RequestPurchase:InvokeServer(unpack(args))
+		else
+			Player.Character.HumanoidRootPart.CFrame = eggCFrame
+		end
 	else
 		print("Not Enough")
 		return 'Not Enough'
