@@ -62,25 +62,26 @@ local UIAspectRatioConstraint_10 = Instance.new("UIAspectRatioConstraint")
 local Frame_3 = Instance.new("Frame")
 local egg_frame = Instance.new("Frame")
 local UIListLayout_6 = Instance.new("UIListLayout")
-local egg_name = Instance.new("TextBox")
-local UICorner_11 = Instance.new("UICorner")
 local egg_quantity = Instance.new("TextBox")
-local UICorner_12 = Instance.new("UICorner")
+local UIAspectRatioConstraint_11 = Instance.new("UIAspectRatioConstraint")
+local egg_name = Instance.new("TextButton")
 local open = Instance.new("TextButton")
-local UICorner_13 = Instance.new("UICorner")
+local UICorner_11 = Instance.new("UICorner")
 local UIGradient_8 = Instance.new("UIGradient")
 local TextLabel_9 = Instance.new("TextLabel")
-local UIAspectRatioConstraint_11 = Instance.new("UIAspectRatioConstraint")
 local UIAspectRatioConstraint_12 = Instance.new("UIAspectRatioConstraint")
-local dex_frame = Instance.new("Frame")
-local UICorner_14 = Instance.new("UICorner")
-local UIListLayout_7 = Instance.new("UIListLayout")
-local ScrollingFrame_3 = Instance.new("ScrollingFrame")
-local UIListLayout_8 = Instance.new("UIListLayout")
+local Frame_4 = Instance.new("Frame")
 local TextButton_2 = Instance.new("TextButton")
+local UIListLayout_7 = Instance.new("UIListLayout")
+local dex_frame = Instance.new("Frame")
+local UICorner_12 = Instance.new("UICorner")
+local UIListLayout_8 = Instance.new("UIListLayout")
+local ScrollingFrame_3 = Instance.new("ScrollingFrame")
+local UIListLayout_9 = Instance.new("UIListLayout")
+local TextButton_3 = Instance.new("TextButton")
 local UIAspectRatioConstraint_13 = Instance.new("UIAspectRatioConstraint")
 local ButtonList = Instance.new("ScrollingFrame")
-local UIListLayout_9 = Instance.new("UIListLayout")
+local UIListLayout_10 = Instance.new("UIListLayout")
 local Current = Instance.new("TextButton")
 local UIAspectRatioConstraint_14 = Instance.new("UIAspectRatioConstraint")
 
@@ -448,7 +449,7 @@ ScrollingFrame_2.BackgroundTransparency = 1.000
 ScrollingFrame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ScrollingFrame_2.BorderSizePixel = 0
 ScrollingFrame_2.Size = UDim2.new(1, 0, 1, 0)
-ScrollingFrame_2.CanvasSize = UDim2.new(0, 0, 0, 0)
+ScrollingFrame_2.CanvasSize = UDim2.new(0, 0, 15, 0)
 ScrollingFrame_2.ScrollBarThickness = 5
 
 UIListLayout_5.Parent = ScrollingFrame_2
@@ -487,7 +488,7 @@ TextLabel_8.BorderSizePixel = 0
 TextLabel_8.Position = UDim2.new(0.067844823, 0, 0, 0)
 TextLabel_8.Size = UDim2.new(0.85735184, 0, 1, 0)
 TextLabel_8.Font = Enum.Font.Gotham
-TextLabel_8.Text = "auto collect orbs"
+TextLabel_8.Text = "auto collect orbs & collect loots"
 TextLabel_8.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_8.TextScaled = true
 TextLabel_8.TextSize = 14.000
@@ -518,24 +519,6 @@ UIListLayout_6.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout_6.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout_6.Padding = UDim.new(0, 15)
 
-egg_name.Name = "egg_name"
-egg_name.Parent = egg_frame
-egg_name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-egg_name.BackgroundTransparency = 0.850
-egg_name.BorderColor3 = Color3.fromRGB(0, 0, 0)
-egg_name.BorderSizePixel = 0
-egg_name.Position = UDim2.new(0.286913782, 0, 0, 0)
-egg_name.Size = UDim2.new(0.453899235, 0, 0.225165561, 0)
-egg_name.Font = Enum.Font.SourceSans
-egg_name.PlaceholderText = "egg name"
-egg_name.Text = ""
-egg_name.TextColor3 = Color3.fromRGB(255, 255, 255)
-egg_name.TextScaled = true
-egg_name.TextSize = 14.000
-egg_name.TextWrapped = true
-
-UICorner_11.Parent = egg_name
-
 egg_quantity.Name = "egg_quantity"
 egg_quantity.Parent = egg_frame
 egg_quantity.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -552,7 +535,23 @@ egg_quantity.TextScaled = true
 egg_quantity.TextSize = 14.000
 egg_quantity.TextWrapped = true
 
-UICorner_12.Parent = egg_quantity
+UIAspectRatioConstraint_11.Parent = egg_frame
+UIAspectRatioConstraint_11.AspectRatio = 6.449
+
+egg_name.Name = "egg_name"
+egg_name.Parent = egg_frame
+egg_name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+egg_name.BackgroundTransparency = 0.950
+egg_name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+egg_name.BorderSizePixel = 0
+egg_name.Position = UDim2.new(0.274077296, 0, 0.324503303, 0)
+egg_name.Size = UDim2.new(0.449791551, 0, 0.225165561, 0)
+egg_name.Font = Enum.Font.SourceSans
+egg_name.Text = "change egg"
+egg_name.TextColor3 = Color3.fromRGB(255, 255, 255)
+egg_name.TextScaled = true
+egg_name.TextSize = 14.000
+egg_name.TextWrapped = true
 
 open.Name = "open"
 open.Parent = egg_frame
@@ -570,8 +569,8 @@ open.TextSize = 14.000
 open.TextTransparency = 1.000
 open.TextWrapped = true
 
-UICorner_13.CornerRadius = UDim.new(0, 15)
-UICorner_13.Parent = open
+UICorner_11.CornerRadius = UDim.new(0, 15)
+UICorner_11.Parent = open
 
 UIGradient_8.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(18, 18, 18)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(62, 62, 62)), ColorSequenceKeypoint.new(0.29, Color3.fromRGB(61, 61, 61)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(191, 191, 191))}
 UIGradient_8.Rotation = -90
@@ -592,11 +591,35 @@ TextLabel_9.TextScaled = true
 TextLabel_9.TextSize = 14.000
 TextLabel_9.TextWrapped = true
 
-UIAspectRatioConstraint_11.Parent = open
-UIAspectRatioConstraint_11.AspectRatio = 10.934
+UIAspectRatioConstraint_12.Parent = open
+UIAspectRatioConstraint_12.AspectRatio = 10.934
 
-UIAspectRatioConstraint_12.Parent = egg_frame
-UIAspectRatioConstraint_12.AspectRatio = 6.449
+Frame_4.Parent = egg_frame
+Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_4.BackgroundTransparency = 1.000
+Frame_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_4.BorderSizePixel = 0
+Frame_4.Position = UDim2.new(0.283833057, 0, 1.62959826, 0)
+Frame_4.Size = UDim2.new(0.439522326, 0, 0.662251651, 0)
+Frame_4.Visible = false
+
+TextButton_2.Parent = Frame_4
+TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.BackgroundTransparency = 0.950
+TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(0.100000046, 0, 0, 0)
+TextButton_2.Size = UDim2.new(0.799999893, 0, 0.329999983, 0)
+TextButton_2.Visible = false
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.TextScaled = true
+TextButton_2.TextSize = 14.000
+TextButton_2.TextWrapped = true
+
+UIListLayout_7.Parent = Frame_4
+UIListLayout_7.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_7.SortOrder = Enum.SortOrder.LayoutOrder
 
 dex_frame.Name = "dex_frame"
 dex_frame.Parent = Frame_2
@@ -608,12 +631,12 @@ dex_frame.Position = UDim2.new(0.0216322802, 0, 0.127545953, 0)
 dex_frame.Size = UDim2.new(0.95771873, 0, 0.743458986, 0)
 dex_frame.Visible = false
 
-UICorner_14.CornerRadius = UDim.new(0, 35)
-UICorner_14.Parent = dex_frame
+UICorner_12.CornerRadius = UDim.new(0, 35)
+UICorner_12.Parent = dex_frame
 
-UIListLayout_7.Parent = dex_frame
-UIListLayout_7.HorizontalAlignment = Enum.HorizontalAlignment.Center
-UIListLayout_7.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_8.Parent = dex_frame
+UIListLayout_8.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_8.SortOrder = Enum.SortOrder.LayoutOrder
 
 ScrollingFrame_3.Parent = dex_frame
 ScrollingFrame_3.Active = true
@@ -623,31 +646,31 @@ ScrollingFrame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ScrollingFrame_3.BorderSizePixel = 0
 ScrollingFrame_3.Position = UDim2.new(3.13391517e-08, 0, -6.89036739e-08, 0)
 ScrollingFrame_3.Size = UDim2.new(0.99999994, 0, 0.774216592, 0)
-ScrollingFrame_3.CanvasSize = UDim2.new(0, 0, 25, 0)
+ScrollingFrame_3.CanvasSize = UDim2.new(0, 0, 15, 0)
 ScrollingFrame_3.ScrollBarThickness = 5
 
-UIListLayout_8.Parent = ScrollingFrame_3
-UIListLayout_8.HorizontalAlignment = Enum.HorizontalAlignment.Center
-UIListLayout_8.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_8.Padding = UDim.new(0, 15)
+UIListLayout_9.Parent = ScrollingFrame_3
+UIListLayout_9.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_9.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_9.Padding = UDim.new(0, 15)
 
-TextButton_2.Parent = ScrollingFrame_3
-TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-TextButton_2.BackgroundTransparency = 1.000
-TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_2.BorderSizePixel = 0
-TextButton_2.Position = UDim2.new(0.0472199507, 0, 0, 0)
-TextButton_2.Size = UDim2.new(0.905560076, 0, 0.126412824, 0)
-TextButton_2.Visible = false
-TextButton_2.AutoButtonColor = false
-TextButton_2.Font = Enum.Font.SourceSans
-TextButton_2.Text = "n/a"
-TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButton_2.TextScaled = true
-TextButton_2.TextSize = 14.000
-TextButton_2.TextWrapped = true
+TextButton_3.Parent = ScrollingFrame_3
+TextButton_3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+TextButton_3.BackgroundTransparency = 1.000
+TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.BorderSizePixel = 0
+TextButton_3.Position = UDim2.new(0.0472199507, 0, 0, 0)
+TextButton_3.Size = UDim2.new(0.905560076, 0, 0.126412824, 0)
+TextButton_3.Visible = false
+TextButton_3.AutoButtonColor = false
+TextButton_3.Font = Enum.Font.SourceSans
+TextButton_3.Text = "n/a"
+TextButton_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_3.TextScaled = true
+TextButton_3.TextSize = 14.000
+TextButton_3.TextWrapped = true
 
-UIAspectRatioConstraint_13.Parent = TextButton_2
+UIAspectRatioConstraint_13.Parent = TextButton_3
 UIAspectRatioConstraint_13.AspectRatio = 15.750
 
 ButtonList.Name = "ButtonList"
@@ -659,13 +682,13 @@ ButtonList.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ButtonList.BorderSizePixel = 0
 ButtonList.Position = UDim2.new(0.0296700578, 0, 0.774216592, 0)
 ButtonList.Size = UDim2.new(0.989952087, 0, 0.207720876, 0)
-ButtonList.CanvasSize = UDim2.new(3, 0, 0, 0)
+ButtonList.CanvasSize = UDim2.new(0, 0, 0, 0)
 ButtonList.ScrollBarThickness = 5
 
-UIListLayout_9.Parent = ButtonList
-UIListLayout_9.FillDirection = Enum.FillDirection.Horizontal
-UIListLayout_9.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_9.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout_10.Parent = ButtonList
+UIListLayout_10.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout_10.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_10.VerticalAlignment = Enum.VerticalAlignment.Center
 
 Current.Name = "Current"
 Current.Parent = ButtonList
@@ -695,7 +718,7 @@ selectedObject.Name = "selectedObject"; selectedObject.Parent = dex_frame
 
 -- Scripts:
 
-local function DPHUBW_fake_script() -- ScreenGui.LocalScript 
+local function WJJN_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local Player = game.Players.LocalPlayer
@@ -710,6 +733,20 @@ local function DPHUBW_fake_script() -- ScreenGui.LocalScript
 	local D_Value = false
 	local OrbsValue = false
 	local eggValue = false
+	
+	--
+	delay(0, function()
+		for z,Eggs in pairs(game.ReplicatedStorage["__DIRECTORY"].Eggs["Zone Eggs"]:GetChildren()) do
+			delay(0, function()
+				local EggButton = script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.Frame.TextButton:Clone()
+				EggButton.Name = Eggs.Name; EggButton.Text = Eggs.Name; EggButton.Visible = true
+				
+				EggButton.MouseButton1Click:Connect(function()
+					script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_name.Text = tostring(EggButton.Text):split("- ")[2]
+				end)
+			end)
+		end
+	end)
 	
 	--Visible and Invisible UI
 	UserInputService.InputEnded:Connect(function(hit)
@@ -827,7 +864,7 @@ local function DPHUBW_fake_script() -- ScreenGui.LocalScript
 			
 			delay(0, function()
 				if eggValue == true then
-					if script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_name.Text == "" or tonumber(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_quantity.Text) == nil then
+					if script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_name.Text == "change egg" or tonumber(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_quantity.Text) == nil then
 						eggValue = false
 						TweenService:Create(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.open,TweenInfo.new(0.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{BackgroundColor3=Color3.new(1, 0, 0)}):Play()
 					else
@@ -856,6 +893,28 @@ local function DPHUBW_fake_script() -- ScreenGui.LocalScript
 								game:GetService("ReplicatedStorage").Network:FindFirstChild("Orbs: Collect"):FireServer(unpack(args))
 								task.wait(); Orbs:Destroy()
 							end
+						end
+					end)
+					
+					local lootHandling = pcall(function()
+						local lootTable = {}
+	
+						for _,Loot in pairs(workspace["__THINGS"].Lootbags:GetChildren()) do
+							table.insert(lootTable, tostring(Loot.Name))
+						end
+	
+						local args = {
+							[1] = lootTable
+						}
+	
+						game:GetService("ReplicatedStorage").Network.Lootbags_Claim:FireServer(unpack(args))
+	
+						for z,TableValue in pairs(lootTable) do
+							local pz = pcall(function()
+								workspace["__THINGS"].Lootbags:FindFirstChild(TableValue):Destroy()
+							end)
+	
+							table.remove(lootTable, z)
 						end
 					end)
 				end
@@ -914,6 +973,7 @@ local function DPHUBW_fake_script() -- ScreenGui.LocalScript
 	delay(0, function()
 		script.Parent.Frame.MainFrame.Frame.dex_frame.ButtonList.Current.MouseButton1Click:Connect(function()
 			script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = nil
+			script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.CanvasSize = Vector2.new(0,0)
 			
 			for _,Dels in pairs(script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame:GetChildren()) do
 				if Dels:IsA("TextButton") then
@@ -928,26 +988,36 @@ local function DPHUBW_fake_script() -- ScreenGui.LocalScript
 			wait(0.1)
 			
 			for z,v in pairs(game:GetChildren()) do
-				delay(0, function()
-					local Button = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.TextButton:Clone()
-					Button.Parent = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame; Button.Visible = true
-					Button.LayoutOrder = z;
+				if v:IsA("Workspace") or v:IsA("ReplicatedStorage") or v:IsA("Player") or v:IsA("Lighting") or v:IsA("ReplicatedFirst") or v:IsA("StarterPack") or v:IsA("Teams") then
+					delay(0, function()
+						local Button = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.TextButton:Clone()
+						Button.Parent = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame; Button.Visible = true
+						Button.LayoutOrder = z;
 	
-					if v.Name == "Workspace" then
-						Button.Name = "workspace"; Button.Text = "workspace"
-						Button.Value.Value = workspace
-					else
-						Button.Name = v.Name; Button.Text = v.Name
-						Button.Value.Value = v
-					end
+						if v.Name == "Workspace" then
+							Button.Name = "workspace"; Button.Text = "workspace"
+							Button.Value.Value = workspace
+						else
+							Button.Name = v.Name; Button.Text = v.Name
+							Button.Value.Value = v
+						end
 	
-					Button.MouseButton1Click:Once(function()
-						script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = Button.Value.Value
-						createListButton(Button.Value.Value)
+						Button.MouseButton1Click:Once(function()
+							script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = Button.Value.Value
+							createListButton(Button.Value.Value)
+						end)
 					end)
-				end)
+				end
 			end
 		end)
+	end)
+	
+	script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_name.MouseButton1Click:Connect(function()
+		if script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.ScrollingFrame.Visible == false then
+			script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.ScrollingFrame.Visible = true
+		else
+			script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.ScrollingFrame.Visible = false
+		end
 	end)
 	
 	script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.Changed:Connect(function()
@@ -1047,4 +1117,4 @@ local function DPHUBW_fake_script() -- ScreenGui.LocalScript
 	end
 	--
 end
-coroutine.wrap(DPHUBW_fake_script)()
+coroutine.wrap(WJJN_fake_script)()
