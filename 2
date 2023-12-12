@@ -325,10 +325,10 @@ delay(0, function()
 			AutoBreakClick("Spawn","Focused")
 		elseif Response["Easy"][1] == "Normal Hatch" then
 			local eggResponse = openEgg("Cracked Egg")
-			local isEnough = nil
+			local isEnough = nil; print(eggResponse)
 
 			if eggResponse == "Not Enough" then
-				isEnough = false
+				isEnough = false; print("Not Enough")
 				local getCurrentArea = getLastArea()
 
 				teleportToArea(getCurrentArea[2])
