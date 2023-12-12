@@ -1,6 +1,19 @@
 local Player = game.Players.LocalPlayer
 _G.AutoRank = true
 
+local BreakableValue = Instance.new("StringValue")
+BreakableValue.Parent = Player.PlayerGui
+
+BreakableValue.Changed:Connect(function()
+	for ranges = 1,10 do task.wait(0.05)
+		local args = {
+			[1] = tostring(BreakableValue.Value)
+		}
+
+		game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+	end
+end)
+
 delay(0, function()
 	local script = game.Players.LocalPlayer.PlayerScripts.Scripts.Game["Egg Opening Frontend"]
 
@@ -43,13 +56,7 @@ local function AutoBreakClick(areaName,ClickType)
 			table.remove(breakableTable,z)
 		end
 	elseif ClickType == "Focused" then
-		for ranges = 1,10 do task.wait()
-			local args = {
-				[1] = tostring(breakableID)
-			}
-
-			game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
-		end
+		BreakableValue = tostring(breakableID)
 	end
 end
 
@@ -96,7 +103,12 @@ local function teleportToArea(areaName,teleportType)
 			if Area:IsA("Folder") then
 				if string.find(Area.Name, tostring(areaName)) then
 					if Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE") then
-						Player.Character.HumanoidRootPart.CFrame = Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE").CFrame * CFrame.new(0,5,0)
+						if Player:DistanceFromCharacter(Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE").Position) <= 30 then
+							--Pass
+						else
+							Player.Character.HumanoidRootPart.CFrame = Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE").CFrame * CFrame.new(0,5,0)
+						end
+						
 						break
 					end
 				end
