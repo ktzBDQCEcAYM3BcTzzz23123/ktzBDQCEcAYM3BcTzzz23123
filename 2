@@ -42,13 +42,11 @@ local function AutoBreakClick(areaName,ClickType)
 end
 
 local function teleportToArea(areaName)
-	delay(0, function()
-		local args = {
-			[1] = tostring(areaName)
-		}
+	local args = {
+		[1] = tostring(areaName)
+	}
 
-		game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
-	end)
+	game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
 	
 	local setBreak = false
 	local totalChecks = 0
@@ -349,6 +347,8 @@ delay(0, function()
 				teleportToArea("Spawn")
 				AutoBreakClick("Spawn", "Focused")
 			end
+			
+			print(isEnough)
 			
 			if isEnough == true then
 				if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
