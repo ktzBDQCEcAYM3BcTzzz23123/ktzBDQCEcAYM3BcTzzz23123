@@ -718,7 +718,7 @@ selectedObject.Name = "selectedObject"; selectedObject.Parent = dex_frame
 
 -- Scripts:
 
-local function WJJN_fake_script() -- ScreenGui.LocalScript 
+local function HVDVSA_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local Player = game.Players.LocalPlayer
@@ -973,7 +973,7 @@ local function WJJN_fake_script() -- ScreenGui.LocalScript
 	delay(0, function()
 		script.Parent.Frame.MainFrame.Frame.dex_frame.ButtonList.Current.MouseButton1Click:Connect(function()
 			script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = nil
-			script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.CanvasSize = Vector2.new(0,0)
+			script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.CanvasPosition = Vector2.new(0,0)
 			
 			for _,Dels in pairs(script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame:GetChildren()) do
 				if Dels:IsA("TextButton") then
@@ -1013,10 +1013,10 @@ local function WJJN_fake_script() -- ScreenGui.LocalScript
 	end)
 	
 	script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_name.MouseButton1Click:Connect(function()
-		if script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.ScrollingFrame.Visible == false then
-			script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.ScrollingFrame.Visible = true
+		if script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.Frame.Visible == false then
+			script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.Frame.Visible = true
 		else
-			script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.ScrollingFrame.Visible = false
+			script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.Frame.Visible = false
 		end
 	end)
 	
@@ -1117,4 +1117,4 @@ local function WJJN_fake_script() -- ScreenGui.LocalScript
 	end
 	--
 end
-coroutine.wrap(WJJN_fake_script)()
+coroutine.wrap(HVDVSA_fake_script)()
