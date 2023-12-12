@@ -171,10 +171,13 @@ local function openEgg(eggName)
 		end
 	end
 
+	print(PlayerBalance)
+
 	for x,CheckReplicatedEggs in pairs(game.ReplicatedStorage["__DIRECTORY"].Eggs["Zone Eggs"]:GetChildren()) do
 		if string.find(CheckReplicatedEggs.Name, eggName) then
-			print(CheckReplicatedEggs.Name)
+			print(CheckReplicatedEggs.Name, "1")
 			getEggID = tostring(CheckReplicatedEggs.Name):split(" |")[1]
+			print(getEggID)
 			break
 		end
 	end
@@ -242,8 +245,12 @@ local function openEgg(eggName)
 		end
 	end
 
+
+
 	local quantity = tonumber(tostring(Player.PlayerGui["_MACHINES"].EggSlotsMachine.Frame.Slots.Items.Title.Remaining.Text):split("/")[1])
+	print(quantity)
 	local allCost = totalPrice*quantity
+	print(allCost)
 
 	if PlayerBalance >= allCost then
 		local args = {
@@ -253,6 +260,7 @@ local function openEgg(eggName)
 
 		game:GetService("ReplicatedStorage").Network.Eggs_RequestPurchase:InvokeServer(unpack(args))
 	else
+		print("Not Enough")
 		return 'Not Enough'
 	end
 end
