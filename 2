@@ -372,6 +372,7 @@ delay(0, function()
 				if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
 					--Pass
 				else
+					print("Teleporting")
 					Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame
 				end
 			end
