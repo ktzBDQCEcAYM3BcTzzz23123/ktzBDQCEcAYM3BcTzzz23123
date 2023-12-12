@@ -324,17 +324,23 @@ delay(0, function()
 			teleportToArea("Spawn")
 			AutoBreakClick("Spawn","Focused")
 		elseif Response["Easy"][1] == "Normal Hatch" then
-			if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
-				local eggResponse = openEgg("Cracked Egg")
-				
-				if eggResponse == "Not Enough" then
-					local getCurrentArea = getLastArea()
-					
-					teleportToArea(getCurrentArea[2])
-					AutoBreakClick(getCurrentArea[2], "Focused")
+			local eggResponse = openEgg("Cracked Egg")
+			local isEnough = nil
+
+			if eggResponse == "Not Enough" then
+				isEnough = false
+				local getCurrentArea = getLastArea()
+
+				teleportToArea(getCurrentArea[2])
+				AutoBreakClick(getCurrentArea[2], "Focused")
+			end
+			
+			if isEnough == true then
+				if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
+					--Pass
+				else
+					Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame
 				end
-			else
-				Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame
 			end
 		end
 	end
