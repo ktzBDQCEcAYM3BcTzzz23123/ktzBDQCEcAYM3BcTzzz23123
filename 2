@@ -56,7 +56,7 @@ local function AutoBreakClick(areaName,ClickType)
 			table.remove(breakableTable,z)
 		end
 	elseif ClickType == "Focused" then
-		BreakableValue = tostring(breakableID)
+		BreakableValue.Value = tostring(breakableID)
 	end
 end
 
