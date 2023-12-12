@@ -1,6 +1,18 @@
 local Player = game.Players.LocalPlayer
 _G.AutoRank = true
 
+delay(0, function()
+	local script = game.Players.LocalPlayer.PlayerScripts.Scripts.Game["Egg Opening Frontend"]
+
+	for i,v in pairs(getsenv(script)) do
+		if string.find(i,"Animation") then
+			for a,b in pairs(getupvalues(v)) do
+				setupvalue(v,a,nil)
+			end
+		end
+	end
+end)
+
 local function AutoBreakClick(areaName,ClickType)
 	delay(0, function()
 		local breakableTable = {}
