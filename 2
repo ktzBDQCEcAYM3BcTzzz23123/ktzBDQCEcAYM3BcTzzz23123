@@ -53,42 +53,54 @@ local function AutoBreakClick(areaName,ClickType)
 	end
 end
 
-local function teleportToArea(areaName)
-	local args = {
-		[1] = tostring(areaName)
-	}
+local function teleportToArea(areaName,teleportType)
+	if teleportType == "Canon" then
+		local args = {
+			[1] = tostring(areaName)
+		}
 
-	game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
+		game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
 
-	local setBreak = false
-	local totalChecks = 0
+		local setBreak = false
+		local totalChecks = 0
 
-	for keepChecking = 1,math.huge do wait(0.2)
-		if setBreak == false then
-			local totalArea = #workspace.Map:GetChildren()
-			totalChecks = totalChecks +1
+		for keepChecking = 1,100 do wait(0.2)
+			if setBreak == false then
+				local totalArea = #workspace.Map:GetChildren()
+				totalChecks = totalChecks +1
 
-			if totalChecks >= 100 then
-				break
-			end
+				if totalChecks >= 100 then
+					break
+				end
 
-			if totalArea >= 1 then
-				for _,Area in pairs(workspace.Map:GetChildren()) do
-					if Area:IsA("Folder") then
-						if string.find(Area.Name, tostring(areaName)) then
-							if Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE") then
-								for trys = 1,10 do wait()
-									Player.Character.HumanoidRootPart.CFrame = Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE").CFrame
+				if totalArea >= 1 then
+					for _,Area in pairs(workspace.Map:GetChildren()) do
+						if Area:IsA("Folder") then
+							if string.find(Area.Name, tostring(areaName)) then
+								if Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE") then
+									wait(8)
+									Player.Character.HumanoidRootPart.CFrame = Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE").CFrame * CFrame.new(0,5,0)
+									setBreak = true
+									break
 								end
-								setBreak = true
-								break
 							end
 						end
 					end
 				end
+			else
+				break
 			end
-		else
-			break
+		end
+	elseif teleportType == "CFrameTeleport" then
+		for _,Area in pairs(workspace.Map:GetChildren()) do
+			if Area:IsA("Folder") then
+				if string.find(Area.Name, tostring(areaName)) then
+					if Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE") then
+						Player.Character.HumanoidRootPart.CFrame = Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE").CFrame * CFrame.new(0,5,0)
+						break
+					end
+				end
+			end
 		end
 	end
 end
@@ -359,19 +371,23 @@ delay(0, function()
 			end)
 
 			if Response["Easy"][1] == "Normal Break" then
-				local pz = pcall(function()
-					teleportToArea("Spawn")
+				delay(0, function()
+					teleportToArea("Spawn", "CFrameTeleport")
 				end)
+				
+				task.wait()
 
-				local pz = pcall(function()
+				delay(0, function()
 					AutoBreakClick("Spawn","Focused")
 				end)
 			elseif Response["Easy"][1] == "Normal Earn" then
-				local pz = pcall(function()
-					teleportToArea("Spawn")
+				delay(0, function()
+					teleportToArea("Spawn", "CFrameTeleport")
 				end)
 				
-				local pz = pcall(function()
+				task.wait()
+				
+				delay(0, function()
 					AutoBreakClick("Spawn", "Random")
 				end)
 			elseif Response["Easy"][1] == "Normal Hatch" then
@@ -380,19 +396,23 @@ delay(0, function()
 
 				if eggResponse == "Not Enough" then
 					isEnough = false;
-					print("Not Enough 2")
-					teleportToArea("Spawn")
-					AutoBreakClick("Spawn", "Focused")
+					
+					delay(0, function()
+						teleportToArea("Spawn", "CFrameTeleport")
+					end)
+					
+					task.wait()
+					
+					delay(0, function()
+						AutoBreakClick("Spawn", "Focused")
+					end)
 				end
-
-				print(isEnough)
 
 				if isEnough == true then
 					if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
 						--Pass
 					else
-						print("Teleporting")
-						Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame
+						Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame  * CFrame.new(0,5,0)
 					end
 				end
 			end
