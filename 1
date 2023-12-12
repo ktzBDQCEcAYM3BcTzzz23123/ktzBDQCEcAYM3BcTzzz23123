@@ -717,7 +717,7 @@ selectedObject.Name = "selectedObject"; selectedObject.Parent = dex_frame
 
 -- Scripts:
 
-local function RZUYEL_fake_script() -- ScreenGui.LocalScript 
+local function SAALZNK_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local Player = game.Players.LocalPlayer
@@ -743,7 +743,7 @@ local function RZUYEL_fake_script() -- ScreenGui.LocalScript
 				EggButton.Name = Eggs.Name; EggButton.Text = Eggs.Name; EggButton.Visible = true
 				
 				EggButton.MouseButton1Click:Connect(function()
-					script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_name.Text = tostring(EggButton.Text):split("- ")[2]
+					script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_name.Text = tostring(EggButton.Text):split("| ")[2]
 				end)
 			end)
 		end
@@ -989,26 +989,24 @@ local function RZUYEL_fake_script() -- ScreenGui.LocalScript
 			wait(0.1)
 			
 			for z,v in pairs(game:GetChildren()) do
-				if v:IsA("Workspace") or v:IsA("ReplicatedStorage") or v:IsA("Player") or v:IsA("Lighting") or v:IsA("ReplicatedFirst") or v:IsA("StarterPack") or v:IsA("Teams") then
-					delay(0, function()
-						local Button = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.TextButton:Clone()
-						Button.Parent = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame; Button.Visible = true
-						Button.LayoutOrder = z;
+				delay(0, function()
+					local Button = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame.TextButton:Clone()
+					Button.Parent = script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame; Button.Visible = true
+					Button.LayoutOrder = z;
 	
-						if v.Name == "Workspace" then
-							Button.Name = "workspace"; Button.Text = "workspace"
-							Button.Value.Value = workspace
-						else
-							Button.Name = v.Name; Button.Text = v.Name
-							Button.Value.Value = v
-						end
+					if v.Name == "Workspace" then
+						Button.Name = "workspace"; Button.Text = "workspace"
+						Button.Value.Value = workspace
+					else
+						Button.Name = v.Name; Button.Text = v.Name
+						Button.Value.Value = v
+					end
 	
-						Button.MouseButton1Click:Once(function()
-							script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = Button.Value.Value
-							createListButton(Button.Value.Value)
-						end)
+					Button.MouseButton1Click:Once(function()
+						script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value = Button.Value.Value
+						createListButton(Button.Value.Value)
 					end)
-				end
+				end)
 			end
 		end)
 	end)
@@ -1120,4 +1118,4 @@ local function RZUYEL_fake_script() -- ScreenGui.LocalScript
 	end)
 	--
 end
-coroutine.wrap(RZUYEL_fake_script)()
+coroutine.wrap(SAALZNK_fake_script)()
