@@ -337,10 +337,8 @@ delay(0, function()
 
 			if eggResponse == "Not Enough" then
 				isEnough = false; print("Not Enough")
-				local getCurrentArea = getLastArea()
-
-				teleportToArea(getCurrentArea[2])
-				AutoBreakClick(getCurrentArea[2], "Focused")
+				teleportToArea("Spawn")
+				AutoBreakClick("Spawn", "Focused")
 			end
 			
 			if isEnough == true then
