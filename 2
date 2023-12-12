@@ -77,9 +77,9 @@ local function teleportToArea(areaName)
 					if Area:IsA("Folder") then
 						if string.find(Area.Name, tostring(areaName)) then
 							if Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE") then
-								Player.Character.HumanoidRootPart.CFrame = Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE").CFrame
-								wait(8)
-								Player.Character.HumanoidRootPart.CFrame = Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE").CFrame
+								for trys = 1,10 do wait()
+									Player.Character.HumanoidRootPart.CFrame = Area.INTERACT.BREAK_ZONES:FindFirstChild("BREAK_ZONE").CFrame
+								end
 								setBreak = true
 								break
 							end
@@ -111,6 +111,13 @@ local function getMission()
 						--Pass
 					else
 						TaskTable[MissionText.Name] = {"Normal Break",getProgressTask,getLastTask}
+					end
+					
+					--Normal Earn
+					if getMissionTask:split("Earn ")[2] == nil then
+						--Pass
+					else
+						TaskTable[MissionText.Name] = {"Normal Earn",getProgressTask,getLastTask}
 					end
 
 					--Normal Hatch
@@ -359,6 +366,8 @@ delay(0, function()
 				local pz = pcall(function()
 					AutoBreakClick("Spawn","Focused")
 				end)
+			elseif Response["Easy"][1] == "Normal Earn" then
+				AutoBreakClick("Spawn", "Random")
 			elseif Response["Easy"][1] == "Normal Hatch" then
 				local eggResponse = openEgg("Cracked Egg")
 				local isEnough = nil; print(eggResponse)
