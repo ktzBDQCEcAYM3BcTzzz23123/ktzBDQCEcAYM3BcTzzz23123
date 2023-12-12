@@ -52,25 +52,37 @@ local TextButton = Instance.new("TextButton")
 local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
 local auto1_frame = Instance.new("Frame")
 local UICorner_9 = Instance.new("UICorner")
-local UIListLayout_5 = Instance.new("UIListLayout")
 local ScrollingFrame_2 = Instance.new("ScrollingFrame")
-local UIListLayout_6 = Instance.new("UIListLayout")
+local UIListLayout_5 = Instance.new("UIListLayout")
 local orbs = Instance.new("TextButton")
 local UICorner_10 = Instance.new("UICorner")
 local UIGradient_7 = Instance.new("UIGradient")
 local TextLabel_8 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_10 = Instance.new("UIAspectRatioConstraint")
-local dex_frame = Instance.new("Frame")
+local Frame_3 = Instance.new("Frame")
+local egg_frame = Instance.new("Frame")
+local UIListLayout_6 = Instance.new("UIListLayout")
+local egg_name = Instance.new("TextBox")
 local UICorner_11 = Instance.new("UICorner")
+local egg_quantity = Instance.new("TextBox")
+local UICorner_12 = Instance.new("UICorner")
+local open = Instance.new("TextButton")
+local UICorner_13 = Instance.new("UICorner")
+local UIGradient_8 = Instance.new("UIGradient")
+local TextLabel_9 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_11 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_12 = Instance.new("UIAspectRatioConstraint")
+local dex_frame = Instance.new("Frame")
+local UICorner_14 = Instance.new("UICorner")
 local UIListLayout_7 = Instance.new("UIListLayout")
 local ScrollingFrame_3 = Instance.new("ScrollingFrame")
 local UIListLayout_8 = Instance.new("UIListLayout")
 local TextButton_2 = Instance.new("TextButton")
-local UIAspectRatioConstraint_11 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_13 = Instance.new("UIAspectRatioConstraint")
 local ButtonList = Instance.new("ScrollingFrame")
 local UIListLayout_9 = Instance.new("UIListLayout")
 local Current = Instance.new("TextButton")
-local UIAspectRatioConstraint_12 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_14 = Instance.new("UIAspectRatioConstraint")
 
 --Properties:
 
@@ -116,7 +128,7 @@ Frame_2.Size = UDim2.new(2.06707311, 0, 1.25812995, 0)
 UIAspectRatioConstraint_2.Parent = Frame_2
 UIAspectRatioConstraint_2.AspectRatio = 1.707
 
-UICorner.CornerRadius = UDim.new(0, 35)
+UICorner.CornerRadius = UDim.new(0, 1)
 UICorner.Parent = Frame_2
 
 TextLabel.Parent = Frame_2
@@ -429,12 +441,6 @@ auto1_frame.Visible = false
 UICorner_9.CornerRadius = UDim.new(0, 35)
 UICorner_9.Parent = auto1_frame
 
-UIListLayout_5.Parent = auto1_frame
-UIListLayout_5.HorizontalAlignment = Enum.HorizontalAlignment.Center
-UIListLayout_5.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_5.VerticalAlignment = Enum.VerticalAlignment.Center
-UIListLayout_5.Padding = UDim.new(0, 15)
-
 ScrollingFrame_2.Parent = auto1_frame
 ScrollingFrame_2.Active = true
 ScrollingFrame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -445,10 +451,10 @@ ScrollingFrame_2.Size = UDim2.new(1, 0, 1, 0)
 ScrollingFrame_2.CanvasSize = UDim2.new(0, 0, 0, 0)
 ScrollingFrame_2.ScrollBarThickness = 5
 
-UIListLayout_6.Parent = ScrollingFrame_2
-UIListLayout_6.HorizontalAlignment = Enum.HorizontalAlignment.Center
-UIListLayout_6.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_6.Padding = UDim.new(0, 15)
+UIListLayout_5.Parent = ScrollingFrame_2
+UIListLayout_5.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_5.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_5.Padding = UDim.new(0, 15)
 
 orbs.Name = "orbs"
 orbs.Parent = ScrollingFrame_2
@@ -490,6 +496,108 @@ TextLabel_8.TextWrapped = true
 UIAspectRatioConstraint_10.Parent = orbs
 UIAspectRatioConstraint_10.AspectRatio = 10.934
 
+Frame_3.Parent = ScrollingFrame_2
+Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_3.BorderSizePixel = 0
+Frame_3.LayoutOrder = -1
+Frame_3.Position = UDim2.new(0.448653936, 0, 0, 0)
+Frame_3.Size = UDim2.new(0, 100, 0, 0)
+
+egg_frame.Name = "egg_frame"
+egg_frame.Parent = ScrollingFrame_2
+egg_frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+egg_frame.BackgroundTransparency = 1.000
+egg_frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+egg_frame.BorderSizePixel = 0
+egg_frame.Position = UDim2.new(3.13391517e-08, 0, 0.186437219, 0)
+egg_frame.Size = UDim2.new(0.99999994, 0, 0.340933174, 0)
+
+UIListLayout_6.Parent = egg_frame
+UIListLayout_6.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_6.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_6.Padding = UDim.new(0, 15)
+
+egg_name.Name = "egg_name"
+egg_name.Parent = egg_frame
+egg_name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+egg_name.BackgroundTransparency = 0.850
+egg_name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+egg_name.BorderSizePixel = 0
+egg_name.Position = UDim2.new(0.286913782, 0, 0, 0)
+egg_name.Size = UDim2.new(0.453899235, 0, 0.225165561, 0)
+egg_name.Font = Enum.Font.SourceSans
+egg_name.PlaceholderText = "egg name"
+egg_name.Text = ""
+egg_name.TextColor3 = Color3.fromRGB(255, 255, 255)
+egg_name.TextScaled = true
+egg_name.TextSize = 14.000
+egg_name.TextWrapped = true
+
+UICorner_11.Parent = egg_name
+
+egg_quantity.Name = "egg_quantity"
+egg_quantity.Parent = egg_frame
+egg_quantity.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+egg_quantity.BackgroundTransparency = 0.850
+egg_quantity.BorderColor3 = Color3.fromRGB(0, 0, 0)
+egg_quantity.BorderSizePixel = 0
+egg_quantity.Position = UDim2.new(0.345961809, 0, 0.324503303, 0)
+egg_quantity.Size = UDim2.new(0.448764622, 0, 0.225165561, 0)
+egg_quantity.Font = Enum.Font.SourceSans
+egg_quantity.PlaceholderText = "egg quantity"
+egg_quantity.Text = ""
+egg_quantity.TextColor3 = Color3.fromRGB(255, 255, 255)
+egg_quantity.TextScaled = true
+egg_quantity.TextSize = 14.000
+egg_quantity.TextWrapped = true
+
+UICorner_12.Parent = egg_quantity
+
+open.Name = "open"
+open.Parent = egg_frame
+open.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+open.BorderColor3 = Color3.fromRGB(0, 0, 0)
+open.BorderSizePixel = 0
+open.Position = UDim2.new(0.401968807, 0, 0, 0)
+open.Size = UDim2.new(0.483600348, 0, 1.16353977, 0)
+open.AutoButtonColor = false
+open.Font = Enum.Font.Unknown
+open.Text = ""
+open.TextColor3 = Color3.fromRGB(255, 255, 255)
+open.TextScaled = true
+open.TextSize = 14.000
+open.TextTransparency = 1.000
+open.TextWrapped = true
+
+UICorner_13.CornerRadius = UDim.new(0, 15)
+UICorner_13.Parent = open
+
+UIGradient_8.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(18, 18, 18)), ColorSequenceKeypoint.new(0.15, Color3.fromRGB(62, 62, 62)), ColorSequenceKeypoint.new(0.29, Color3.fromRGB(61, 61, 61)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(191, 191, 191))}
+UIGradient_8.Rotation = -90
+UIGradient_8.Parent = open
+
+TextLabel_9.Parent = open
+TextLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_9.BackgroundTransparency = 1.000
+TextLabel_9.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_9.BorderSizePixel = 0
+TextLabel_9.Position = UDim2.new(0.067844823, 0, 0, 0)
+TextLabel_9.Size = UDim2.new(0.85735184, 0, 1, 0)
+TextLabel_9.ZIndex = -1
+TextLabel_9.Font = Enum.Font.Gotham
+TextLabel_9.Text = "auto open egg"
+TextLabel_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_9.TextScaled = true
+TextLabel_9.TextSize = 14.000
+TextLabel_9.TextWrapped = true
+
+UIAspectRatioConstraint_11.Parent = open
+UIAspectRatioConstraint_11.AspectRatio = 10.934
+
+UIAspectRatioConstraint_12.Parent = egg_frame
+UIAspectRatioConstraint_12.AspectRatio = 6.449
+
 dex_frame.Name = "dex_frame"
 dex_frame.Parent = Frame_2
 dex_frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -500,15 +608,12 @@ dex_frame.Position = UDim2.new(0.0216322802, 0, 0.127545953, 0)
 dex_frame.Size = UDim2.new(0.95771873, 0, 0.743458986, 0)
 dex_frame.Visible = false
 
-UICorner_11.CornerRadius = UDim.new(0, 35)
-UICorner_11.Parent = dex_frame
+UICorner_14.CornerRadius = UDim.new(0, 35)
+UICorner_14.Parent = dex_frame
 
 UIListLayout_7.Parent = dex_frame
 UIListLayout_7.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout_7.SortOrder = Enum.SortOrder.LayoutOrder
-
-local selectedObject = Instance.new("ObjectValue")
-selectedObject.Name = "selectedObject"; selectedObject.Parent = dex_frame
 
 ScrollingFrame_3.Parent = dex_frame
 ScrollingFrame_3.Active = true
@@ -542,11 +647,8 @@ TextButton_2.TextScaled = true
 TextButton_2.TextSize = 14.000
 TextButton_2.TextWrapped = true
 
-local VS_2 = Instance.new("ObjectValue")
-VS_2.Name = "Value"; VS_2.Parent = TextButton_2
-
-UIAspectRatioConstraint_11.Parent = TextButton_2
-UIAspectRatioConstraint_11.AspectRatio = 15.750
+UIAspectRatioConstraint_13.Parent = TextButton_2
+UIAspectRatioConstraint_13.AspectRatio = 15.750
 
 ButtonList.Name = "ButtonList"
 ButtonList.Parent = dex_frame
@@ -579,15 +681,21 @@ Current.TextScaled = true
 Current.TextSize = 14.000
 Current.TextWrapped = true
 
+UIAspectRatioConstraint_14.Parent = Current
+UIAspectRatioConstraint_14.AspectRatio = 4.000
+
 local VS_1 = Instance.new("ObjectValue")
 VS_1.Name = "Value"; VS_1.Parent = Current
 
-UIAspectRatioConstraint_12.Parent = Current
-UIAspectRatioConstraint_12.AspectRatio = 4.000
+local VS_2 = Instance.new("ObjectValue")
+VS_2.Name = "Value"; VS_2.Parent = TextButton_2
+
+local selectedObject = Instance.new("ObjectValue")
+selectedObject.Name = "selectedObject"; selectedObject.Parent = dex_frame
 
 -- Scripts:
 
-local function YZKA_fake_script() -- ScreenGui.LocalScript 
+local function DPHUBW_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local Player = game.Players.LocalPlayer
@@ -601,9 +709,40 @@ local function YZKA_fake_script() -- ScreenGui.LocalScript
 	local S_Value = false
 	local D_Value = false
 	local OrbsValue = false
+	local eggValue = false
+	
+	--Visible and Invisible UI
+	UserInputService.InputEnded:Connect(function(hit)
+		if hit.KeyCode == Enum.KeyCode.Semicolon then
+			if script.Parent.Frame.Visible == true then
+				script.Parent.Frame.Visible = false
+			else
+				script.Parent.Frame.Visible = true
+			end
+		end
+	end)
+	
+	--Affect all button List
+	delay(0, function()
+		for _,Button in pairs(script.Parent.Frame.MainFrame.Frame.button_list:GetChildren()) do
+			if Button:IsA("TextButton") then
+				delay(0, function()
+					Button.MouseButton1Click:Connect(function()
+						if script.Parent.Frame.MainFrame.Frame:FindFirstChild(Button.Name .. "_frame") then
+							script.Parent.Frame.MainFrame.Frame.button_list.Visible = false; script.Parent.Frame.MainFrame.Frame.TextButton.Visible = true
+							script.Parent.Frame.MainFrame.Frame:FindFirstChild(Button.Name .. "_frame").Visible = true
+						else
+							--Pass
+						end
+					end)
+				end)
+			end
+		end
+	end)	
 	
 	script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.PlaceholderText = `current scale was {script.Parent.Frame.MainFrame.Size.X.Scale}`
 	
+	--Function
 	local function changeScale(scale_x)
 		if tonumber(scale_x) == nil then
 			script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.Text = ""
@@ -664,24 +803,113 @@ local function YZKA_fake_script() -- ScreenGui.LocalScript
 			end)
 		end)
 	end
+	--
 	
+	--Looping
 	delay(0, function()
-		while true do wait(0.1)
-			local pz = pcall(function()
-				if script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value == nil then
-					--Pass
-				else
-					for _,v in pairs(script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value:GetChildren()) do
-						if script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame:FindFirstChild(v.Name) then
-							--Pass
-						else
-							addButton(v)
+		while true do task.wait(0.01)
+			--Dex ChildAdded & ChildRemoved function
+			delay(0, function()
+				local handleError = pcall(function()
+					if script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value == nil then
+						--Pass
+					else
+						for _,v in pairs(script.Parent.Frame.MainFrame.Frame.dex_frame.selectedObject.Value:GetChildren()) do
+							if script.Parent.Frame.MainFrame.Frame.dex_frame.ScrollingFrame:FindFirstChild(v.Name) then
+								--Pass
+							else
+								addButton(v)
+							end
 						end
+					end
+				end)
+			end)
+			
+			delay(0, function()
+				if eggValue == true then
+					if script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_name.Text == "" or tonumber(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_quantity.Text) == nil then
+						eggValue = false
+						TweenService:Create(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.open,TweenInfo.new(0.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{BackgroundColor3=Color3.new(1, 0, 0)}):Play()
+					else
+						local args = {
+							[1] = tostring(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_name.Text),
+							[2] = tonumber(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.egg_quantity.Text)
+						}
+	
+						game:GetService("ReplicatedStorage").Network.Eggs_RequestPurchase:InvokeServer(unpack(args))
+					end
+				end
+			end)
+			
+			--Auto Collect Orbs
+			delay(0, function()
+				if OrbsValue == true then
+					local pz = pcall(function()
+						for _,Orbs in pairs(workspace["__THINGS"].Orbs:GetChildren()) do
+							if Orbs:IsA("Part") then
+								local args = {
+									[1] = {
+										[1] = tonumber(Orbs.Name)
+									}
+								}
+	
+								game:GetService("ReplicatedStorage").Network:FindFirstChild("Orbs: Collect"):FireServer(unpack(args))
+								task.wait(); Orbs:Destroy()
+							end
+						end
+					end)
+				end
+			end)
+			
+			--Customized Walking Control Function
+			delay(0, function()
+				if customizedWalkingControl == true then
+					local handleError = pcall(function()
+						local modifiedPart = Instance.new("Part"); modifiedPart.Anchored = true;
+						modifiedPart.CanCollide = false; modifiedPart.CanQuery = false; modifiedPart.CanTouch = false
+						modifiedPart.CFrame = workspace.CurrentCamera.CFrame
+	
+						local x,y,z = CFrame.lookAt(modifiedPart.Position, workspace:FindFirstChild(Player.Name).HumanoidRootPart.Position):ToOrientation()
+						local modifiedCFrame = CFrame.fromOrientation(0,y,0)
+						modifiedPart:Destroy()
+	
+						workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame = CFrame.new(workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame.X,workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame.Y,workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame.Z) * modifiedCFrame
+					end)
+	
+					if W_Value == true then
+						local Part = Instance.new("Part")
+						Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
+						Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(0,0,-6)
+	
+						workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
+						Part:Destroy()
+					elseif S_Value == true then
+						local Part = Instance.new("Part")
+						Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
+						Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(0,0,6)
+	
+						workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
+						Part:Destroy()
+					elseif A_Value == true then
+						local Part = Instance.new("Part")
+						Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
+						Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(-6,0,0)
+	
+						workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
+						Part:Destroy()
+					elseif D_Value == true then
+						local Part = Instance.new("Part")
+						Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
+						Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(6,0,0)
+	
+						workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
+						Part:Destroy()
 					end
 				end
 			end)
 		end
 	end)
+	--
 	
 	delay(0, function()
 		script.Parent.Frame.MainFrame.Frame.dex_frame.ButtonList.Current.MouseButton1Click:Connect(function()
@@ -722,26 +950,6 @@ local function YZKA_fake_script() -- ScreenGui.LocalScript
 		end)
 	end)
 	
-	delay(0, function()
-		while true do wait(0.1)
-			if OrbsValue == true then
-				local pz = pcall(function()
-					
-				end)
-			end
-		end
-	end)
-	
-	UserInputService.InputEnded:Connect(function(hit)
-		if hit.KeyCode == Enum.KeyCode.Semicolon then
-			if script.Parent.Frame.Visible == true then
-				script.Parent.Frame.Visible = false
-			else
-				script.Parent.Frame.Visible = true
-			end
-		end
-	end)
-	
 	script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.Changed:Connect(function()
 		changeScale(script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.Scale.Text)
 	end)
@@ -753,6 +961,27 @@ local function YZKA_fake_script() -- ScreenGui.LocalScript
 		else
 			customizedWalkingControl = false
 			TweenService:Create(script.Parent.Frame.MainFrame.Frame.compatibility_frame.ScrollingFrame.walk,TweenInfo.new(0.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{BackgroundColor3=Color3.new(1, 0, 0)}):Play()
+		end
+	end)
+	
+	
+	script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.open.MouseButton1Click:Connect(function()
+		if eggValue == false then
+			eggValue = true
+			TweenService:Create(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.open,TweenInfo.new(0.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{BackgroundColor3=Color3.new(0.333333, 1, 0.498039)}):Play()
+		else
+			eggValue = false
+			TweenService:Create(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.egg_frame.open,TweenInfo.new(0.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{BackgroundColor3=Color3.new(1, 0, 0)}):Play()
+		end
+	end)
+	
+	script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.orbs.MouseButton1Click:Connect(function()
+		if OrbsValue == false then
+			OrbsValue = true
+			TweenService:Create(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.orbs,TweenInfo.new(0.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{BackgroundColor3=Color3.new(0.333333, 1, 0.498039)}):Play()
+		else
+			OrbsValue = false
+			TweenService:Create(script.Parent.Frame.MainFrame.Frame.auto1_frame.ScrollingFrame.orbs,TweenInfo.new(0.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{BackgroundColor3=Color3.new(1, 0, 0)}):Play()
 		end
 	end)
 	
@@ -769,23 +998,6 @@ local function YZKA_fake_script() -- ScreenGui.LocalScript
 		
 		script.Parent.Frame.MainFrame.Frame.TextButton.Visible = false
 	end)
-	
-	delay(0, function()
-		for _,Button in pairs(script.Parent.Frame.MainFrame.Frame.button_list:GetChildren()) do
-			if Button:IsA("TextButton") then
-				delay(0, function()
-					Button.MouseButton1Click:Connect(function()
-						if script.Parent.Frame.MainFrame.Frame:FindFirstChild(Button.Name .. "_frame") then
-							script.Parent.Frame.MainFrame.Frame.button_list.Visible = false; script.Parent.Frame.MainFrame.Frame.TextButton.Visible = true
-							script.Parent.Frame.MainFrame.Frame:FindFirstChild(Button.Name .. "_frame").Visible = true
-						else
-							--Pass
-						end
-					end)
-				end)
-			end
-		end
-	end)	
 	
 	UserInputService.InputBegan:Connect(function(hit)
 		if hit.KeyCode == Enum.KeyCode.KeypadEight then
@@ -823,53 +1035,16 @@ local function YZKA_fake_script() -- ScreenGui.LocalScript
 		end
 	end)
 	
+	--Bypass
+	local script = game.Players.LocalPlayer.PlayerScripts.Scripts.Game["Egg Opening Frontend"]
 	
-	delay(0, function()
-		while true do task.wait(0.01)
-			if customizedWalkingControl == true then
-				local handleError = pcall(function()
-					local modifiedPart = Instance.new("Part"); modifiedPart.Anchored = true;
-					modifiedPart.CanCollide = false; modifiedPart.CanQuery = false; modifiedPart.CanTouch = false
-					modifiedPart.CFrame = workspace.CurrentCamera.CFrame
-	
-					local x,y,z = CFrame.lookAt(modifiedPart.Position, workspace:FindFirstChild(Player.Name).HumanoidRootPart.Position):ToOrientation()
-					local modifiedCFrame = CFrame.fromOrientation(0,y,0)
-					modifiedPart:Destroy()
-	
-					workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame = CFrame.new(workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame.X,workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame.Y,workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame.Z) * modifiedCFrame
-				end)
-				
-				if W_Value == true then
-					local Part = Instance.new("Part")
-					Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
-					Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(0,0,-6)
-					
-					workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
-					Part:Destroy()
-				elseif S_Value == true then
-					local Part = Instance.new("Part")
-					Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
-					Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(0,0,6)
-	
-					workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
-					Part:Destroy()
-				elseif A_Value == true then
-					local Part = Instance.new("Part")
-					Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
-					Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(-6,0,0)
-	
-					workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
-					Part:Destroy()
-				elseif D_Value == true then
-					local Part = Instance.new("Part")
-					Part.Anchored = true; Part.CanCollide = false; Part.CanQuery = false; Part.CanTouch = false
-					Part.CFrame = workspace:FindFirstChild(Player.Name).HumanoidRootPart.CFrame * CFrame.new(6,0,0)
-	
-					workspace:FindFirstChild(Player.Name).Humanoid:MoveTo(Part.Position)
-					Part:Destroy()
-				end
+	for i,v in pairs(getsenv(script)) do
+		if string.find(i,"Animation") then
+			for a,b in pairs(getupvalues(v)) do
+				setupvalue(v,a,nil)
 			end
 		end
-	end)
+	end
+	--
 end
-coroutine.wrap(YZKA_fake_script)()
+coroutine.wrap(DPHUBW_fake_script)()
