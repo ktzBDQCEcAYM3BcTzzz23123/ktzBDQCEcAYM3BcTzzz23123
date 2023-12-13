@@ -1,4 +1,3 @@
---dumbf
 local Player = game.Players.LocalPlayer
 _G.AutoRank = true
 
@@ -373,6 +372,8 @@ local function getLastAreaV2(checkType)
 		end)
 
 		local lastArea = areaTable[1][2]
+
+		return areaTable[1]
 	elseif checkType == "lastUnlocked" then
 		for z,Area in pairs(workspace.Map:GetChildren()) do
 			if Area:IsA("Folder") then
@@ -402,8 +403,140 @@ local function getLastAreaV2(checkType)
 			end
 		end
 
-		print(lastUnlockedArea)
+		return lastUnlockedArea
 	end
+end
+
+local function getPlayerBalance()
+	local PlayerBalance = 0
+
+	for z,BalanceList in pairs(Player.PlayerGui.MainLeft.Left.Currency.Coins:GetChildren()) do
+		if BalanceList:IsA("Frame") then
+			if BalanceList.Name == "Gold Coins" then
+				if string.find(BalanceList.Amount.Text, "k") then
+					local filteredPrice = string.gsub(tostring(BalanceList.Amount.Text),"k","")
+					local calculatedPrice = tonumber(filteredPrice)*1000
+
+					PlayerBalance = PlayerBalance +calculatedPrice
+				else
+					PlayerBalance = PlayerBalance +tonumber(BalanceList.Amount.Text)
+				end
+			end
+
+			if BalanceList.Name == "Gold Bars" then
+				if string.find(BalanceList.Amount.Text, "k") then
+					local filteredPrice = string.gsub(tostring(BalanceList.Amount.Text),"k","")
+					local calculatedPrice = tonumber(filteredPrice)*10000000
+
+					PlayerBalance = PlayerBalance +calculatedPrice
+				else
+					PlayerBalance = PlayerBalance +tonumber(BalanceList.Amount.Text)*1000000
+				end
+			end
+
+			if BalanceList.Name == "Platinum Coins" then
+				if string.find(BalanceList.Amount.Text, "k") then
+					local filteredPrice = string.gsub(tostring(BalanceList.Amount.Text),"k","")
+					local calculatedPrice = tonumber(filteredPrice)*10000000000
+
+					PlayerBalance = PlayerBalance +calculatedPrice
+				else
+					PlayerBalance = PlayerBalance +tonumber(BalanceList.Amount.Text)*1000000000
+				end
+			end
+
+			if BalanceList.Name == "Platinum Bars" then
+				if string.find(BalanceList.Amount.Text, "k") then
+					local filteredPrice = string.gsub(tostring(BalanceList.Amount.Text),"k","")
+					local calculatedPrice = tonumber(filteredPrice)*100000000000
+
+					PlayerBalance = PlayerBalance +calculatedPrice
+				else
+					PlayerBalance = PlayerBalance +tonumber(BalanceList.Amount.Text)*10000000000
+				end
+			end
+
+			if BalanceList.Name == "Emerald Coins" then
+				if string.find(BalanceList.Amount.Text, "k") then
+					local filteredPrice = string.gsub(tostring(BalanceList.Amount.Text),"k","")
+					local calculatedPrice = tonumber(filteredPrice)*1000000000000000
+
+					PlayerBalance = PlayerBalance +calculatedPrice
+				else
+					PlayerBalance = PlayerBalance +tonumber(BalanceList.Amount.Text)*10000000000000
+				end
+			end
+		end
+	end
+
+	return PlayerBalance
+end
+
+local function getAreaPrice(areaName)
+	print(areaName)
+	local getAreaPrice = workspace.Map:FindFirstChild(areaName).INTERACT.Gate.GateHUD.Req
+	local PlayerBalance = 0
+
+	for z,Currency in pairs(getAreaPrice:GetChildren()) do
+		if Currency:IsA("Frame") then
+			if Currency.Name == "Gold Coins" then
+				if string.find(Currency.Amount.Text, "k") then
+					local filteredPrice = string.gsub(tostring(Currency.Amount.Text),"k","")
+					local calculatedPrice = tonumber(filteredPrice)*1000
+
+					PlayerBalance = PlayerBalance +calculatedPrice
+				else
+					PlayerBalance = PlayerBalance +tonumber(Currency.Amount.Text)
+				end
+			end
+
+			if Currency.Name == "Gold Bars" then
+				if string.find(Currency.Amount.Text, "k") then
+					local filteredPrice = string.gsub(tostring(Currency.Amount.Text),"k","")
+					local calculatedPrice = tonumber(filteredPrice)*10000000
+
+					PlayerBalance = PlayerBalance +calculatedPrice
+				else
+					PlayerBalance = PlayerBalance +tonumber(Currency.Amount.Text)*1000000
+				end
+			end
+
+			if Currency.Name == "Platinum Coins" then
+				if string.find(Currency.Amount.Text, "k") then
+					local filteredPrice = string.gsub(tostring(Currency.Amount.Text),"k","")
+					local calculatedPrice = tonumber(filteredPrice)*10000000000
+
+					PlayerBalance = PlayerBalance +calculatedPrice
+				else
+					PlayerBalance = PlayerBalance +tonumber(Currency.Amount.Text)*1000000000
+				end
+			end
+
+			if Currency.Name == "Platinum Bars" then
+				if string.find(Currency.Amount.Text, "k") then
+					local filteredPrice = string.gsub(tostring(Currency.Amount.Text),"k","")
+					local calculatedPrice = tonumber(filteredPrice)*100000000000
+
+					PlayerBalance = PlayerBalance +calculatedPrice
+				else
+					PlayerBalance = PlayerBalance +tonumber(Currency.Amount.Text)*10000000000
+				end
+			end
+
+			if Currency.Name == "Emerald Coins" then
+				if string.find(Currency.Amount.Text, "k") then
+					local filteredPrice = string.gsub(tostring(Currency.Amount.Text),"k","")
+					local calculatedPrice = tonumber(filteredPrice)*1000000000000000
+
+					PlayerBalance = PlayerBalance +calculatedPrice
+				else
+					PlayerBalance = PlayerBalance +tonumber(Currency.Amount.Text)*10000000000000
+				end
+			end
+		end
+	end
+
+	return PlayerBalance
 end
 
 delay(0, function()
@@ -448,46 +581,51 @@ delay(0, function()
 				end
 			end)
 			
+			local priorityNormal = false
+			
 			--Normal Task
 			if Response["Normal"] == nil then
 				--Pass
 			else
 				if Response["Normal"][1] == "Unlock Area" then
-					-- Need to be scripted
+					priorityNormal = true
+					local response = getLastAreaV2("lastLocked")
+					local getLastArea = response[2]
+					
+					local areaPrice = getAreaPrice(getLastArea)
+					local playerBalance = getPlayerBalance()
+					
+					local filteredArea = tostring(response[2]):split("| ")[2]
+					
+					if playerBalance >= areaPrice then
+						local args = {
+							[1] = filteredArea
+						}
+
+						game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+					else
+						local response = getLastAreaV2("lastUnlocked")
+						local getCurrentUnlockedArea = tostring(response):split("| ")[2]
+
+						delay(0, function()
+							teleportToArea(getCurrentUnlockedArea, "CFrameTeleport")
+						end)
+
+						task.wait()
+
+						delay(0, function()
+							AutoBreakClick(getCurrentUnlockedArea, "Random")
+						end)
+					end
 				end
 			end
 			
-			--Easy Task
-			if Response["Easy"] == nil then
-				--Pass
-			else
-				if Response["Easy"][1] == "Normal Break" then
-					delay(0, function()
-						teleportToArea("Spawn", "CFrameTeleport")
-					end)
-
-					task.wait()
-
-					delay(0, function()
-						AutoBreakClick("Spawn","Focused")
-					end)
-				elseif Response["Easy"][1] == "Normal Earn" then
-					delay(0, function()
-						teleportToArea("Spawn", "CFrameTeleport")
-					end)
-
-					task.wait()
-
-					delay(0, function()
-						AutoBreakClick("Spawn", "Random")
-					end)
-				elseif Response["Easy"][1] == "Normal Hatch" then
-					local eggResponse = openEgg("Cracked Egg")
-					local isEnough = nil; print(eggResponse)
-
-					if eggResponse == "Not Enough" then
-						isEnough = false;
-
+			if priorityNormal == false then
+				--Easy Task
+				if Response["Easy"] == nil then
+					--Pass
+				else
+					if Response["Easy"][1] == "Normal Break" then
 						delay(0, function()
 							teleportToArea("Spawn", "CFrameTeleport")
 						end)
@@ -495,15 +633,45 @@ delay(0, function()
 						task.wait()
 
 						delay(0, function()
-							AutoBreakClick("Spawn", "Focused")
+							AutoBreakClick("Spawn","Focused")
 						end)
-					end
+					elseif Response["Easy"][1] == "Normal Earn" then
+						local response = getLastAreaV2("lastUnlocked")
+						local getCurrentUnlockedArea = tostring(response):split("| ")[2]
 
-					if isEnough == true then
-						if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
-							--Pass
-						else
-							Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame  * CFrame.new(0,5,0)
+						delay(0, function()
+							teleportToArea(getCurrentUnlockedArea, "CFrameTeleport")
+						end)
+
+						task.wait()
+
+						delay(0, function()
+							AutoBreakClick(getCurrentUnlockedArea, "Random")
+						end)
+					elseif Response["Easy"][1] == "Normal Hatch" then
+						local eggResponse = openEgg("Cracked Egg")
+						local isEnough = nil; print(eggResponse)
+
+						if eggResponse == "Not Enough" then
+							isEnough = false;
+
+							delay(0, function()
+								teleportToArea("Spawn", "CFrameTeleport")
+							end)
+
+							task.wait()
+
+							delay(0, function()
+								AutoBreakClick("Spawn", "Focused")
+							end)
+						end
+
+						if isEnough == true then
+							if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
+								--Pass
+							else
+								Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame  * CFrame.new(0,5,0)
+							end
 						end
 					end
 				end
