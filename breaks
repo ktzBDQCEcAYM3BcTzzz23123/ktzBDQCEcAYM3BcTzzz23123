@@ -1,0 +1,109 @@
+local Player = game.Players.LocalPlayer
+
+local breakableTable = {}
+local breakableID = nil
+
+_G.AreaName = "Fairy Castle"
+_G.Active = true
+_G.BreakType = "Focused"
+
+delay(0, function()
+	while _G.Active do wait()
+		local hum = game.Players.LocalPlayer.Character
+		local raycastParams = RaycastParams.new()
+		raycastParams.FilterDescendantsInstances = {hum,workspace.__THINGS.Breakables,workspace.__THINGS.Pets,workspace.Camera}
+		raycastParams.FilterType = Enum.RaycastFilterType.Exclude
+		raycastParams.IgnoreWater = true
+
+		for i,v in pairs(workspace.__THINGS.Breakables:GetChildren()) do
+			if v.ClassName == "Model" and workspace:Raycast(v.PrimaryPart.Position, Vector3.new(0, -50, 0),raycastParams).Instance.Name == "BREAK_ZONE" and string.find(workspace:Raycast(v.PrimaryPart.Position, Vector3.new(0, -50, 0),raycastParams).Instance.Parent.Parent.Parent.Name,_G.AreaName) then        
+				if table.find(breakableTable, tostring(v.Name)) then
+					--Pass
+				else
+					table.insert(breakableTable, tostring(v.Name))
+				end
+			end
+		end
+
+		if _G.BreakType == "Focused" then
+			if workspace.__THINGS.Breakables:FindFirstChild(breakableTable[1]) then
+				local args = {
+					[1] = tostring(breakableTable[1])
+				}
+
+				game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+			else
+				for z,Destroys in pairs(breakableTable) do
+					table.remove(breakableTable,z)
+				end
+			end
+		elseif _G.BreakType == "Random" then
+			for z,breakAbleID in pairs(breakableTable) do task.wait()
+				local args = {
+					[1] = tostring(breakAbleID)
+				}
+
+				game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+				task.wait(); table.remove(breakableTable,z)
+			end
+		end
+
+		local pz = pcall(function()
+			for _,Orbs in pairs(workspace["__THINGS"].Orbs:GetChildren()) do
+				if Orbs:IsA("Part") then
+					local args = {
+						[1] = {
+							[1] = tonumber(Orbs.Name)
+						}
+					}
+
+					game:GetService("ReplicatedStorage").Network:FindFirstChild("Orbs: Collect"):FireServer(unpack(args))
+					task.wait(); Orbs:Destroy()
+				end
+			end
+		end)
+
+		local lootHandling = pcall(function()
+			local lootTable = {}
+
+			for _,Loot in pairs(workspace["__THINGS"].Lootbags:GetChildren()) do
+				table.insert(lootTable, tostring(Loot.Name))
+			end
+
+			local args = {
+				[1] = lootTable
+			}
+
+			game:GetService("ReplicatedStorage").Network.Lootbags_Claim:FireServer(unpack(args))
+
+			for z,TableValue in pairs(lootTable) do
+				local pz = pcall(function()
+					workspace["__THINGS"].Lootbags:FindFirstChild(TableValue):Destroy()
+				end)
+
+				table.remove(lootTable, z)
+			end
+		end)
+	end
+end)
+
+delay(0, function()
+	local vu = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+end)
+
+delay(0, function()
+	local script = game.Players.LocalPlayer.PlayerScripts.Scripts.Game["Egg Opening Frontend"]
+	
+	for i,v in pairs(getsenv(script)) do
+		if string.find(i,"Animation") then
+			for a,b in pairs(getupvalues(v)) do
+				setupvalue(v,a,nil)
+			end
+		end
+	end
+end)
