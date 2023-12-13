@@ -9,44 +9,46 @@ _G.BreakType = "Focused"
 
 delay(0, function()
 	while _G.Active do wait()
-		local hum = game.Players.LocalPlayer.Character
-		local raycastParams = RaycastParams.new()
-		raycastParams.FilterDescendantsInstances = {hum,workspace.__THINGS.Breakables,workspace.__THINGS.Pets,workspace.Camera}
-		raycastParams.FilterType = Enum.RaycastFilterType.Exclude
-		raycastParams.IgnoreWater = true
+		local ps = pcall(function()
+			local hum = game.Players.LocalPlayer.Character
+			local raycastParams = RaycastParams.new()
+			raycastParams.FilterDescendantsInstances = {hum,workspace.__THINGS.Breakables,workspace.__THINGS.Pets,workspace.Camera}
+			raycastParams.FilterType = Enum.RaycastFilterType.Exclude
+			raycastParams.IgnoreWater = true
 
-		for i,v in pairs(workspace.__THINGS.Breakables:GetChildren()) do
-			if v.ClassName == "Model" and workspace:Raycast(v.PrimaryPart.Position, Vector3.new(0, -50, 0),raycastParams).Instance.Name == "BREAK_ZONE" and string.find(workspace:Raycast(v.PrimaryPart.Position, Vector3.new(0, -50, 0),raycastParams).Instance.Parent.Parent.Parent.Name,_G.AreaName) then        
-				if table.find(breakableTable, tostring(v.Name)) then
-					--Pass
+			for i,v in pairs(workspace.__THINGS.Breakables:GetChildren()) do
+				if v.ClassName == "Model" and workspace:Raycast(v.PrimaryPart.Position, Vector3.new(0, -50, 0),raycastParams).Instance.Name == "BREAK_ZONE" and string.find(workspace:Raycast(v.PrimaryPart.Position, Vector3.new(0, -50, 0),raycastParams).Instance.Parent.Parent.Parent.Name,_G.AreaName) then        
+					if table.find(breakableTable, tostring(v.Name)) then
+						--Pass
+					else
+						table.insert(breakableTable, tostring(v.Name))
+					end
+				end
+			end
+
+			if _G.BreakType == "Focused" then
+				if workspace.__THINGS.Breakables:FindFirstChild(breakableTable[1]) then
+					local args = {
+						[1] = tostring(breakableTable[1])
+					}
+
+					game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
 				else
-					table.insert(breakableTable, tostring(v.Name))
+					for z,Destroys in pairs(breakableTable) do
+						table.remove(breakableTable,z)
+					end
+				end
+			elseif _G.BreakType == "Random" then
+				for z,breakAbleID in pairs(breakableTable) do task.wait()
+					local args = {
+						[1] = tostring(breakAbleID)
+					}
+
+					game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+					task.wait(); table.remove(breakableTable,z)
 				end
 			end
-		end
-
-		if _G.BreakType == "Focused" then
-			if workspace.__THINGS.Breakables:FindFirstChild(breakableTable[1]) then
-				local args = {
-					[1] = tostring(breakableTable[1])
-				}
-
-				game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
-			else
-				for z,Destroys in pairs(breakableTable) do
-					table.remove(breakableTable,z)
-				end
-			end
-		elseif _G.BreakType == "Random" then
-			for z,breakAbleID in pairs(breakableTable) do task.wait()
-				local args = {
-					[1] = tostring(breakAbleID)
-				}
-
-				game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
-				task.wait(); table.remove(breakableTable,z)
-			end
-		end
+		end)
 
 		local pz = pcall(function()
 			for _,Orbs in pairs(workspace["__THINGS"].Orbs:GetChildren()) do
