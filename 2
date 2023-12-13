@@ -1,5 +1,6 @@
+--lontong sayur
 local Player = game.Players.LocalPlayer
-_G.AutoRank = false
+_G.AutoRank = true
 
 local globalBreakable = {}
 
@@ -580,13 +581,15 @@ delay(0, function()
 					table.remove(lootTable, z)
 				end
 			end)
+			
+			local mediumPriority = false
 						
-			--Normal Task
-			if Response["Normal"] == nil then
+			--Medium Task
+			if Response["Medium"] == nil then
 				--Pass
 			else
-				if Response["Normal"][1] == "Unlock Area" then
-					print(Response["Normal"][1])
+				if Response["Medium"][1] == "Unlock Area" then
+					mediumPriority = true
 					local responses = getLastAreaV2("lastLocked")
 					local getLastArea = responses[2]
 					
@@ -618,39 +621,11 @@ delay(0, function()
 				end
 			end
 			
-			if Response["Easy"] == nil then
-				--Pass
-			else
-				if Response["Easy"][1] == "Normal Break" then
-					delay(0, function()
-						teleportToArea("Spawn", "CFrameTeleport")
-					end)
-
-					task.wait()
-
-					delay(0, function()
-						AutoBreakClick("Spawn","Focused")
-					end)
-				elseif Response["Easy"][1] == "Normal Earn" then
-					local responses = getLastAreaV2("lastUnlocked")
-					local getCurrentUnlockedArea = tostring(responses):split("| ")[2]
-
-					delay(0, function()
-						teleportToArea(getCurrentUnlockedArea, "CFrameTeleport")
-					end)
-
-					task.wait()
-
-					delay(0, function()
-						AutoBreakClick(getCurrentUnlockedArea, "Random")
-					end)
-				elseif Response["Easy"][1] == "Normal Hatch" then
-					local eggResponse = openEgg("Cracked Egg")
-					local isEnough = nil; print(eggResponse)
-
-					if eggResponse == "Not Enough" then
-						isEnough = false;
-
+			if mediumPriority == false then
+				if Response["Easy"] == nil then
+					--Pass
+				else
+					if Response["Easy"][1] == "Normal Break" then
 						delay(0, function()
 							teleportToArea("Spawn", "CFrameTeleport")
 						end)
@@ -658,15 +633,45 @@ delay(0, function()
 						task.wait()
 
 						delay(0, function()
-							AutoBreakClick("Spawn", "Focused")
+							AutoBreakClick("Spawn","Focused")
 						end)
-					end
+					elseif Response["Easy"][1] == "Normal Earn" then
+						local responses = getLastAreaV2("lastUnlocked")
+						local getCurrentUnlockedArea = tostring(responses):split("| ")[2]
 
-					if isEnough == true then
-						if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
-							--Pass
-						else
-							Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame  * CFrame.new(0,5,0)
+						delay(0, function()
+							teleportToArea(getCurrentUnlockedArea, "CFrameTeleport")
+						end)
+
+						task.wait()
+
+						delay(0, function()
+							AutoBreakClick(getCurrentUnlockedArea, "Random")
+						end)
+					elseif Response["Easy"][1] == "Normal Hatch" then
+						local eggResponse = openEgg("Cracked Egg")
+						local isEnough = nil; print(eggResponse)
+
+						if eggResponse == "Not Enough" then
+							isEnough = false;
+
+							delay(0, function()
+								teleportToArea("Spawn", "CFrameTeleport")
+							end)
+
+							task.wait()
+
+							delay(0, function()
+								AutoBreakClick("Spawn", "Focused")
+							end)
+						end
+
+						if isEnough == true then
+							if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
+								--Pass
+							else
+								Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame  * CFrame.new(0,5,0)
+							end
 						end
 					end
 				end
