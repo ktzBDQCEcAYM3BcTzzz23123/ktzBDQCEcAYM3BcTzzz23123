@@ -1,4 +1,3 @@
---ashub
 local Player = game.Players.LocalPlayer
 _G.AutoRank = true
 
@@ -581,22 +580,20 @@ delay(0, function()
 					table.remove(lootTable, z)
 				end
 			end)
-			
-			local priorityNormal = false
-			
+						
 			--Normal Task
 			if Response["Normal"] == nil then
 				--Pass
 			else
 				if Response["Normal"][1] == "Unlock Area" then
-					priorityNormal = true
-					local response = getLastAreaV2("lastLocked")
-					local getLastArea = response[2]
+					print(Response["Normal"][1])
+					local responses = getLastAreaV2("lastLocked")
+					local getLastArea = responses[2]
 					
 					local areaPrice = getAreaPrice(getLastArea)
 					local playerBalance = getPlayerBalance()
 					
-					local filteredArea = tostring(response[2]):split("| ")[2]
+					local filteredArea = tostring(responses[2]):split("| ")[2]
 					
 					if playerBalance >= areaPrice then
 						local args = {
@@ -605,8 +602,8 @@ delay(0, function()
 
 						game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
 					else
-						local response = getLastAreaV2("lastUnlocked")
-						local getCurrentUnlockedArea = tostring(response):split("| ")[2]
+						local responses = getLastAreaV2("lastUnlocked")
+						local getCurrentUnlockedArea = tostring(responses):split("| ")[2]
 
 						delay(0, function()
 							teleportToArea(getCurrentUnlockedArea, "CFrameTeleport")
@@ -621,12 +618,39 @@ delay(0, function()
 				end
 			end
 			
-			if priorityNormal == false then
-				--Easy Task
-				if Response["Easy"] == nil then
-					--Pass
-				else
-					if Response["Easy"][1] == "Normal Break" then
+			if Response["Easy"] == nil then
+				--Pass
+			else
+				if Response["Easy"][1] == "Normal Break" then
+					delay(0, function()
+						teleportToArea("Spawn", "CFrameTeleport")
+					end)
+
+					task.wait()
+
+					delay(0, function()
+						AutoBreakClick("Spawn","Focused")
+					end)
+				elseif Response["Easy"][1] == "Normal Earn" then
+					local responses = getLastAreaV2("lastUnlocked")
+					local getCurrentUnlockedArea = tostring(responses):split("| ")[2]
+
+					delay(0, function()
+						teleportToArea(getCurrentUnlockedArea, "CFrameTeleport")
+					end)
+
+					task.wait()
+
+					delay(0, function()
+						AutoBreakClick(getCurrentUnlockedArea, "Random")
+					end)
+				elseif Response["Easy"][1] == "Normal Hatch" then
+					local eggResponse = openEgg("Cracked Egg")
+					local isEnough = nil; print(eggResponse)
+
+					if eggResponse == "Not Enough" then
+						isEnough = false;
+
 						delay(0, function()
 							teleportToArea("Spawn", "CFrameTeleport")
 						end)
@@ -634,45 +658,15 @@ delay(0, function()
 						task.wait()
 
 						delay(0, function()
-							AutoBreakClick("Spawn","Focused")
+							AutoBreakClick("Spawn", "Focused")
 						end)
-					elseif Response["Easy"][1] == "Normal Earn" then
-						local response = getLastAreaV2("lastUnlocked")
-						local getCurrentUnlockedArea = tostring(response):split("| ")[2]
+					end
 
-						delay(0, function()
-							teleportToArea(getCurrentUnlockedArea, "CFrameTeleport")
-						end)
-
-						task.wait()
-
-						delay(0, function()
-							AutoBreakClick(getCurrentUnlockedArea, "Random")
-						end)
-					elseif Response["Easy"][1] == "Normal Hatch" then
-						local eggResponse = openEgg("Cracked Egg")
-						local isEnough = nil; print(eggResponse)
-
-						if eggResponse == "Not Enough" then
-							isEnough = false;
-
-							delay(0, function()
-								teleportToArea("Spawn", "CFrameTeleport")
-							end)
-
-							task.wait()
-
-							delay(0, function()
-								AutoBreakClick("Spawn", "Focused")
-							end)
-						end
-
-						if isEnough == true then
-							if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
-								--Pass
-							else
-								Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame  * CFrame.new(0,5,0)
-							end
+					if isEnough == true then
+						if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
+							--Pass
+						else
+							Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame  * CFrame.new(0,5,0)
 						end
 					end
 				end
