@@ -1,5 +1,3 @@
---gayhub 888
-
 local Player = game.Players.LocalPlayer
 _G.AutoRank = true
 
@@ -628,14 +626,17 @@ delay(0, function()
 					if eggResponse == "Not Enough" then
 						isEnough = false;
 
+						local responses = getLastAreaV2("lastUnlocked")
+						local getCurrentUnlockedArea = tostring(responses):split("| ")[2]
+
 						delay(0, function()
-							teleportToArea("Spawn", "CFrameTeleport")
+							teleportToArea(getCurrentUnlockedArea, "CFrameTeleport")
 						end)
 
 						task.wait()
 
 						delay(0, function()
-							AutoBreakClick("Spawn", "Focused")
+							AutoBreakClick(getCurrentUnlockedArea, "Random")
 						end)
 					end
 
@@ -683,14 +684,17 @@ delay(0, function()
 						if eggResponse == "Not Enough" then
 							isEnough = false;
 
+							local responses = getLastAreaV2("lastUnlocked")
+							local getCurrentUnlockedArea = tostring(responses):split("| ")[2]
+
 							delay(0, function()
-								teleportToArea("Spawn", "CFrameTeleport")
+								teleportToArea(getCurrentUnlockedArea, "CFrameTeleport")
 							end)
 
 							task.wait()
 
 							delay(0, function()
-								AutoBreakClick("Spawn", "Focused")
+								AutoBreakClick(getCurrentUnlockedArea, "Random")
 							end)
 						end
 
