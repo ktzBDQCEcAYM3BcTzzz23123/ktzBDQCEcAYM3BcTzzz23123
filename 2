@@ -1,5 +1,5 @@
 local Player = game.Players.LocalPlayer
-_G.AutoRank = false
+_G.AutoRank = true
 
 local globalBreakable = {}
 
@@ -18,11 +18,13 @@ end)
 local function AutoBreakClick(areaName,ClickType)
 	if #globalBreakable >= 1 then
 		if workspace.__THINGS.Breakables:FindFirstChild(globalBreakable[1]) then
-			local args = {
-				[1] = tostring(globalBreakable[1])
-			}
+			for ranges = 1,10 do wait()
+				local args = {
+					[1] = tostring(globalBreakable[1])
+				}
 
-			game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+				game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+			end
 		else
 			for d,Deletes in pairs(globalBreakable) do
 				table.remove(globalBreakable, d)
@@ -136,6 +138,11 @@ local function getMission()
 					local getMissionTask = tostring(MissionText.Title.Text)
 					local getProgressTask = tonumber(tostring(MissionText.Progress.Text):split("/")[1])
 					local getLastTask = tonumber(tostring(MissionText.Progress.Text):split("/")[2])
+					
+					--Unlock Area
+					if getMissionTask == "Unlock an Area" then
+						TaskTable[MissionText.Name] = {"Unlock Area",getProgressTask,getLastTask}
+					end
 
 					--Normal Breaking
 					if getMissionTask:split("Break ")[2] == nil then
@@ -347,6 +354,57 @@ local function getLastArea()
 	return MapTable[1]
 end
 
+local function getLastAreaV2(checkType)
+	local areaTable = {}
+
+	if checkType == "lastLocked" then
+		for z,Area in pairs(workspace.Map:GetChildren()) do
+			if Area:IsA("Folder") then
+				if Area.INTERACT:FindFirstChild("Gate") then
+					local getAreaID = tostring(Area.INTERACT.Gate.GateHUD.Title.Text):split("Area ")[2]
+					table.insert(areaTable, {tonumber(getAreaID),Area.Name})
+				end
+			end
+		end
+
+		table.sort(areaTable, function(a,b)
+			return a[1] < b[1]
+		end)
+
+		local lastArea = areaTable[1][2]
+	elseif checkType == "lastUnlocked" then
+		for z,Area in pairs(workspace.Map:GetChildren()) do
+			if Area:IsA("Folder") then
+				if Area.INTERACT:FindFirstChild("Gate") then
+					local getAreaID = tostring(Area.INTERACT.Gate.GateHUD.Title.Text):split("Area ")[2]
+					table.insert(areaTable, {tonumber(getAreaID),Area.Name})
+				end
+			end
+		end
+
+		table.sort(areaTable, function(a,b)
+			return a[1] < b[1]
+		end)
+
+		local lastArea = areaTable[1][2]
+		local getLastAreaID = tonumber(areaTable[1][1])
+
+		getLastAreaID = getLastAreaID -1
+		local lastUnlockedArea = nil
+
+		for w,x in pairs(workspace.Map:GetChildren()) do
+			if x:IsA("Folder") then
+				if string.find(x.Name, tostring(getLastAreaID) .. " | ") then
+					lastUnlockedArea = x.Name
+					break
+				end
+			end
+		end
+
+		print(lastUnlockedArea)
+	end
+end
+
 delay(0, function()
 	while _G.AutoRank do wait(0.3)
 		local Response = getMission()
@@ -388,6 +446,10 @@ delay(0, function()
 					table.remove(lootTable, z)
 				end
 			end)
+			
+			if Response["Normal"][1] == "Unlock Area" then
+				-- Need to be scripted
+			end
 
 			if Response["Easy"][1] == "Normal Break" then
 				delay(0, function()
