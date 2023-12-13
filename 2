@@ -1,18 +1,7 @@
 local Player = game.Players.LocalPlayer
 _G.AutoRank = true
 
-local BreakableValue = Instance.new("StringValue")
-BreakableValue.Parent = Player.PlayerGui
-
-BreakableValue.Changed:Connect(function()
-	for ranges = 1,10 do task.wait(0.05)
-		local args = {
-			[1] = tostring(BreakableValue.Value)
-		}
-
-		game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
-	end
-end)
+local globalBreakable = {}
 
 delay(0, function()
 	local script = game.Players.LocalPlayer.PlayerScripts.Scripts.Game["Egg Opening Frontend"]
@@ -27,36 +16,54 @@ delay(0, function()
 end)
 
 local function AutoBreakClick(areaName,ClickType)
-	local breakableTable = {}
-	local breakableID = nil
-
-	local hum = game.Players.LocalPlayer.Character
-	local raycastParams = RaycastParams.new()
-	raycastParams.FilterDescendantsInstances = {hum,workspace.__THINGS.Breakables,workspace.__THINGS.Pets,workspace.Camera}
-	raycastParams.FilterType = Enum.RaycastFilterType.Exclude
-	raycastParams.IgnoreWater = true
-
-	for i,v in pairs(workspace.__THINGS.Breakables:GetChildren()) do
-		if v.ClassName == "Model" and workspace:Raycast(v.PrimaryPart.Position, Vector3.new(0, -50, 0),raycastParams).Instance.Name == "BREAK_ZONE" and string.find(workspace:Raycast(v.PrimaryPart.Position, Vector3.new(0, -50, 0),raycastParams).Instance.Parent.Parent.Parent.Name,areaName) then        
-			if ClickType == "Random" then
-				table.insert(breakableTable, tostring(v.Name))
-			elseif ClickType == "Focused" then
-				breakableID = tostring(v.Name)
-			end
-		end
-	end
-
-	if ClickType == "Random" then
-		for z,BreakablesID in pairs(breakableTable) do task.wait()
+	if #globalBreakable >= 1 then
+		if workspace.__THINGS.Breakables:FindFirstChild(globalBreakable[1]) then
 			local args = {
-				[1] = tostring(BreakablesID)
+				[1] = tostring(globalBreakable[1])
 			}
 
 			game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
-			table.remove(breakableTable,z)
+		else
+			for d,Deletes in pairs(globalBreakable) do
+				table.remove(globalBreakable, d)
+			end
 		end
-	elseif ClickType == "Focused" then
-		BreakableValue.Value = tostring(breakableID)
+	else
+		local breakableTable = {}
+		local breakableID = nil
+
+		local hum = game.Players.LocalPlayer.Character
+		local raycastParams = RaycastParams.new()
+		raycastParams.FilterDescendantsInstances = {hum,workspace.__THINGS.Breakables,workspace.__THINGS.Pets,workspace.Camera}
+		raycastParams.FilterType = Enum.RaycastFilterType.Exclude
+		raycastParams.IgnoreWater = true
+
+		for i,v in pairs(workspace.__THINGS.Breakables:GetChildren()) do
+			if v.ClassName == "Model" and workspace:Raycast(v.PrimaryPart.Position, Vector3.new(0, -50, 0),raycastParams).Instance.Name == "BREAK_ZONE" and string.find(workspace:Raycast(v.PrimaryPart.Position, Vector3.new(0, -50, 0),raycastParams).Instance.Parent.Parent.Parent.Name,areaName) then        
+				if ClickType == "Random" then
+					table.insert(breakableTable, tostring(v.Name))
+				elseif ClickType == "Focused" then
+					breakableID = tostring(v.Name)
+				end
+			end
+		end
+
+		if ClickType == "Random" then
+			for z,BreakablesID in pairs(breakableTable) do task.wait()
+				local args = {
+					[1] = tostring(BreakablesID)
+				}
+
+				game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+				table.remove(breakableTable,z)
+			end
+		elseif ClickType == "Focused" then
+			if table.find(globalBreakable, tostring(breakableID)) then
+				--Pass
+			else
+				table.insert(globalBreakable, tostring(breakableID))
+			end
+		end
 	end
 end
 
