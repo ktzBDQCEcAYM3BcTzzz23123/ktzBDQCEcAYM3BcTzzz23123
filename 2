@@ -447,53 +447,61 @@ delay(0, function()
 				end
 			end)
 			
-			if Response["Normal"][1] == "Unlock Area" then
-				-- Need to be scripted
+			if Response["Normal"] == nil then
+				--Pass
+			else
+				if Response["Normal"][1] == "Unlock Area" then
+					-- Need to be scripted
+				end
 			end
-
-			if Response["Easy"][1] == "Normal Break" then
-				delay(0, function()
-					teleportToArea("Spawn", "CFrameTeleport")
-				end)
-				
-				task.wait()
-
-				delay(0, function()
-					AutoBreakClick("Spawn","Focused")
-				end)
-			elseif Response["Easy"][1] == "Normal Earn" then
-				delay(0, function()
-					teleportToArea("Spawn", "CFrameTeleport")
-				end)
-				
-				task.wait()
-				
-				delay(0, function()
-					AutoBreakClick("Spawn", "Random")
-				end)
-			elseif Response["Easy"][1] == "Normal Hatch" then
-				local eggResponse = openEgg("Cracked Egg")
-				local isEnough = nil; print(eggResponse)
-
-				if eggResponse == "Not Enough" then
-					isEnough = false;
-					
+			
+			if Response["Easy"] == nil then
+				--Pass
+			else
+				if Response["Easy"][1] == "Normal Break" then
 					delay(0, function()
 						teleportToArea("Spawn", "CFrameTeleport")
 					end)
-					
-					task.wait()
-					
-					delay(0, function()
-						AutoBreakClick("Spawn", "Focused")
-					end)
-				end
 
-				if isEnough == true then
-					if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
-						--Pass
-					else
-						Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame  * CFrame.new(0,5,0)
+					task.wait()
+
+					delay(0, function()
+						AutoBreakClick("Spawn","Focused")
+					end)
+				elseif Response["Easy"][1] == "Normal Earn" then
+					delay(0, function()
+						teleportToArea("Spawn", "CFrameTeleport")
+					end)
+
+					task.wait()
+
+					delay(0, function()
+						AutoBreakClick("Spawn", "Random")
+					end)
+				elseif Response["Easy"][1] == "Normal Hatch" then
+					local eggResponse = openEgg("Cracked Egg")
+					local isEnough = nil; print(eggResponse)
+
+					if eggResponse == "Not Enough" then
+						isEnough = false;
+
+						delay(0, function()
+							teleportToArea("Spawn", "CFrameTeleport")
+						end)
+
+						task.wait()
+
+						delay(0, function()
+							AutoBreakClick("Spawn", "Focused")
+						end)
+					end
+
+					if isEnough == true then
+						if Player:DistanceFromCharacter(workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.Position) <= 10 then
+							--Pass
+						else
+							Player.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("__THINGS").Eggs.Main["1 - Egg Capsule"].Egg.CFrame  * CFrame.new(0,5,0)
+						end
 					end
 				end
 			end
